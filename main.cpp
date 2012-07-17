@@ -3,7 +3,9 @@
 
 int main (void)
 {
-    printf("Hello world!");
+    mailbot::Mail * mail = mailbot::Mail::New("z:\\mail-bot\\samples\\1.eml") ;
+
+    mail->Delete();
 
     return 1 ;
 }

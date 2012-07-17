@@ -1,5 +1,6 @@
-#include "mailbot/attachment.hpp"
-#include "boost/date_time.hpp"
+#include "attachment.hpp"
+#include "base.hpp"
+#include "boost/date_time/gregorian/gregorian.hpp"
 
 namespace mailbot {
 
@@ -7,26 +8,43 @@ class Mail {
 
 private:
     static Mail * pInstance ;
-    std::string * header ;
     std::string * body ;
     std::list<std::string *> * cc ;
     std::string * to ;
     std::string * messageId ;
     std::string * inReplyTo ;
     std::string * deliveredTo ;
-    std::list<Attachment *> attachments ;
+    std::list<Attachment *> * attachments ;
     std::string * subject ;
     std::string * userAgent ;
     std::string * bcc ;
     std::string * organization ;
-    boost::date_time * date ;
-    void parseFromFile ( char * fname ) ;
+    boost::gregorian::date * date ;
+    void parseFromFile ( const char * fname ) ;
     void freeAll ( void ) ;
-    static Mail ( char * fname ) { parseFromFile ( fname ) ; } ;
-    static ~Mail ( void ) { } ;
+    Mail ( char * fname ) ;
+    ~Mail ( void ) ;
 public:
+    static Mail * New ( char * fname )
+    {
+        if ( pInstance == NULL )
+        {
+            pInstance = new Mail ( fname ) ;
+        }// IF
 
+        return pInstance ;
 
+    };// Singleton Constructor
+
+    static void Delete ( void )
+    {
+        if ( pInstance != NULL )
+        {
+            delete pInstance ;
+            pInstance = NULL ;
+        }// IF
+
+    };// Singleton Destructor
 };
 
 }

@@ -1,4 +1,4 @@
-#include "mailbot/attachment.hpp"
+#include "attachment.hpp"
 
 namespace mailbot {
 
@@ -14,12 +14,12 @@ namespace mailbot {
         delete this->filepath ;
     }// Destructor
 
-    std::string * getName ( void )
+    std::string * Attachment::getName ( void )
     {
         return this->filename ;
     }// getName
 
-    std::string * getPath ( void )
+    std::string * Attachment::getPath ( void )
     {
         return this->filepath ;
     }// getPath

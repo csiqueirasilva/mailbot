@@ -1,7 +1,7 @@
 #ifndef MAILBOT_ATTACHMENT
 #define MAILBOT_ATTACHMENT
 
-#include "mailbot/base.hpp"
+#include "base.hpp"
 
 namespace mailbot {
 
