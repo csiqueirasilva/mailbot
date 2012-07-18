@@ -1,6 +1,6 @@
 #include "attachment.hpp"
 #include "base.hpp"
-#include <boost/date_time/gregorian/gregorian.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 namespace mailbot {
 
@@ -19,13 +19,14 @@ private:
     std::string * userAgent ;
     std::string * bcc ;
     std::string * organization ;
-    boost::gregorian::date * date ;
+    boost::posix_time::ptime * date ;
     void parseFromFile ( const char * fname ) ;
-    void freeAll ( void ) ;
-    Mail ( char * fname ) ;
+    void parseHeader ( vmime::ref<vmime::message> msg ) ;
+    void parseBody ( vmime::ref<vmime::message> msg ) ;
+    Mail ( const char * fname ) ;
     ~Mail ( void ) ;
 public:
-    static Mail * New ( char * fname )
+    static Mail * New ( const char * fname )
     {
         if ( pInstance == NULL )
         {
@@ -45,6 +46,9 @@ public:
         }// IF
 
     };// Singleton Destructor
+
+    void Print ( void ) ;
+
 };
 
 }
