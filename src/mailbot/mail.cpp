@@ -71,25 +71,37 @@ namespace mailbot {
 
         vmime::ref<const vmime::header> hdr = msg->getHeader() ;
 
-        //headerDate = hdr->Date()->getValue()->generate() ;
+        this->date = new boost::gregorian::date(hdr->Date()->getValue().dynamicCast<const vmime::datetime>()->getYear(),hdr->Date()->getValue().dynamicCast<const vmime::datetime>()->getMonth(),hdr->Date()->getValue().dynamicCast<const vmime::datetime>()->getDay()) ;
+
+        std::cout << this->date->month() << std::endl ;
+
         this->messageId = new std::string (hdr->MessageId()->getValue()->generate().c_str());
 
-        std::cout << this->messageId << std::endl ;
-
-        this->deliveredTo = new std::string (hdr->DeliveredTo()->getValue()->generate().c_str());
+        try
+        {
+            throw hdr->DeliveredTo()->getValue()->generate() ;
+        }// try
+        catch ( vmime:: exception e )
+        {
+            this->deliveredTo = NULL ;
+        }// catch
+        catch ( std::string e )
+        {
+            this->deliveredTo = new std::string(e.c_str()) ;
+        }// catch
 
         try
         {
             throw hdr->InReplyTo()->getValue()->generate() ;
-        }/* TRY */
+        }// try
         catch ( vmime::exception e )
         {
 			this->inReplyTo = NULL ;
-        }/* CATCH */
+        }// catch
         catch ( std::string e )
         {
 			this->inReplyTo = new std::string(e.c_str()) ;
-        }/* CATCH */
+        }// catch
 
     }// Function parseFromFile
 

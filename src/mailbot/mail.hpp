@@ -1,6 +1,6 @@
 #include "attachment.hpp"
 #include "base.hpp"
-#include "boost/date_time/gregorian/gregorian.hpp"
+#include <boost/date_time/gregorian/gregorian.hpp>
 
 namespace mailbot {
 
