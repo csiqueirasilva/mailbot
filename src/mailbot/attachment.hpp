@@ -10,11 +10,14 @@ class Attachment {
 private:
     std::string * filename ;
     std::string * filepath ;
+    std::string * filetype ;
 
 public:
     std::string * getName ( void ) ;
     std::string * getPath ( void ) ;
-    Attachment ( char * fname, char * fpath ) ;
+    std::string * getType ( void ) ;
+
+    Attachment ( const char * fname, const char * fpath, const char * ftype ) ;
     ~Attachment ( void ) ;
 };
 

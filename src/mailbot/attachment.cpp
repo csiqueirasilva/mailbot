@@ -2,16 +2,18 @@
 
 namespace mailbot {
 
-    Attachment::Attachment ( char * fname, char * fpath )
+    Attachment::Attachment ( const char * fname, const char * fpath, const char * ftype )
     {
         this->filename = new std::string ( fname ) ;
         this->filepath = new std::string ( fpath ) ;
+        this->filetype = new std::string ( ftype ) ;
     }// Constructor
 
     Attachment::~Attachment ( void )
     {
         delete this->filename ;
         delete this->filepath ;
+        delete this->filetype ;
     }// Destructor
 
     std::string * Attachment::getName ( void )
@@ -23,5 +25,10 @@ namespace mailbot {
     {
         return this->filepath ;
     }// getPath
+
+    std::string * Attachment::getType ( void )
+    {
+        return this->filetype ;
+    }// getType
 
 }// MAILBOT

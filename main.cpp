@@ -1,4 +1,3 @@
-#include <cstdio>
 #include "src/mailbot.hpp"
 
 int main (void)

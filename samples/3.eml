@@ -1,0 +1,1600 @@
+Delivered-To: csiqueirasilva@gmail.com
+Received: by 10.76.143.70 with SMTP id sc6csp215329oab;
+        Wed, 18 Jul 2012 10:39:12 -0700 (PDT)
+Received: by 10.236.187.1 with SMTP id x1mr1640552yhm.125.1342633152042;
+        Wed, 18 Jul 2012 10:39:12 -0700 (PDT)
+Return-Path: <juliolucio@gmail.com>
+Received: from mail-yw0-f42.google.com (mail-yw0-f42.google.com [209.85.213.42])
+        by mx.google.com with ESMTPS id i49si19817481yhn.141.2012.07.18.10.39.10
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Wed, 18 Jul 2012 10:39:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of juliolucio@gmail.com designates 209.85.213.42 as permitted sender) client-ip=209.85.213.42;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of juliolucio@gmail.com designates 209.85.213.42 as permitted sender) smtp.mail=juliolucio@gmail.com; dkim=pass header.i=@gmail.com
+Received: by mail-yw0-f42.google.com with SMTP id o21so1680423yho.15
+        for <multiple recipients>; Wed, 18 Jul 2012 10:39:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=subject:mime-version:content-type:from:in-reply-to:date:cc
+         :message-id:references:to:x-mailer;
+        bh=aXC2cmbaDfJV3MNCO3o06NDcsuQN/WXSuSdvUL5vm7s=;
+        b=xpYN5OUvPDuECvaOUrsmDZLJ7wSEZJDHek1SEc70k8gtMiIaoqPPjxLUhe7cFoyDJW
+         s6ozTxc1etH4ZKPC/PWzFIa+rTti77H3RtSY/fhOQiiv4xw+iqTJZD2Dhx8Ivzo0wKNO
+         3XmC2LkugNtlZGBekE3isZbpzrm0f5Y5/yH1BkvXYx/qunME+OSwSGVs2eqiOkQpr9Y/
+         /ouvep9k9ro6UAQlxA3bpbRBGmFnQyuNvX7pGVcePXkQw9GS0yBxx8eGPjNtkInyQpES
+         ioPeYbTQmJOia3bsPqfWaHf2ZZGTjuqsXKt/+1tJxrOQ2unnrdSCY9xV6N1sfIBvQ/eK
+         kBjQ==
+Received: by 10.236.75.229 with SMTP id z65mr1661505yhd.57.1342633149874;
+        Wed, 18 Jul 2012 10:39:09 -0700 (PDT)
+Return-Path: <juliolucio@gmail.com>
+Received: from [192.168.0.103] ([186.205.215.146])
+        by mx.google.com with ESMTPS id z3sm20215355anj.17.2012.07.18.10.39.03
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Wed, 18 Jul 2012 10:39:07 -0700 (PDT)
+Subject: Re: Kinect calib
+Mime-Version: 1.0 (Apple Message framework v1278)
+Content-Type: multipart/alternative; boundary="Apple-Mail=_8C746296-4675-4C62-B96F-1E567694F88E"
+From: Julio Lucio <juliolucio@gmail.com>
+In-Reply-To: <50061D9E.8020005@gmail.com>
+Date: Wed, 18 Jul 2012 14:39:01 -0300
+Cc: Djalma Lucio <djalma.lucio@gmail.com>,
+ Luiz Velho <lvelho@impa.br>,
+ Thiago Motta TecGraf <trmotta@tecgraf.puc-rio.br>,
+ Caio Silva <csiqueirasilva@gmail.com>,
+ Manuel Loaiza <manuelloaizaf2010@gmail.com>,
+ Felipe Cezar <felipe.cezar@gmail.com>
+Message-Id: <088314D0-B233-4229-8C88-1BC86D0F06BD@gmail.com>
+References: <20120606024824.GA4079@impa.br> <4FCFB73F.8070902@gmail.com> <20120606210615.GA6694@impa.br> <4FCFEF31.6080000@gmail.com> <20120607013255.GA7361@impa.br> <4FE08173.3050604@tecgraf.puc-rio.br> <20120622195340.GA17103@impa.br> <4FE4E1C3.6040901@tecgraf.puc-rio.br> <20120622225514.GA17761@impa.br> <50045F9B.9090102@tecgraf.puc-rio.br> <20120717015253.GE16488@impa.br> <50054642.2040604@gmail.com> <CAFW3nOR+8JNhpSn9K1BfGKSQ+k+Szn+SM682E-hndt9f+_jgHA@mail.gmail.com> <14374C32-11A9-479A-9EE4-F1F75AC2781F@gmail.com> <50061D9E.8020005@gmail.com>
+To: Luciano Pereira Soares <lpsoares@gmail.com>
+X-Mailer: Apple Mail (2.1278)
+
+
+--Apple-Mail=_8C746296-4675-4C62-B96F-1E567694F88E
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=iso-8859-1
+
+Oi Luciono.
+Aqui Julio quem trabalha no VISGRAPH com o protejo de realidade =
+aumentada.
+So queria dicer que si nao quiser, nao precisa trazer o padr=E3o de =
+calibracao, pois a gente j=E1 tem um no lab.
+Se ve amanha.
+
+On 17 Jul 2012, at 23:21, Luciano Pereira Soares wrote:
+
+> Ok, estaremos l=E1.
+>=20
+>     Temos o sistema do rgbdemo com um aplicativo chamado CamaraLucida =
+rodando no meu notebook, vamos levar o padr=E3o de calibra=E7=E3o ai =
+podemos discutir se valhe a pena continuar com isso. A proposta deles =E9 =
+interessante mas tem alguns incovenientes.
+>=20
+>         at=E9 l=E1, Luciano P Soares
+>=20
+>=20
+> Em 17/7/12 5:35 PM, Julio Lucio escreveu:
+>> A gente se ve aqui.
+>>=20
+>> On 17 Jul 2012, at 17:33, Djalma Lucio wrote:
+>>=20
+>>> Ol=E1  a todos.
+>>>=20
+>>> A reuni=E3o ficou marcada para a quinta-feira(19/07) a partir das =
+13:30hs aqui no VISGRAF.
+>>>=20
+>>> []s
+>>> Djalma.
+>>>=20
+>>> 2012/7/17 Luciano Pereira Soares <lpsoares@gmail.com>
+>>> Ola Luiz,
+>>>=20
+>>>     Podemos ir sim. Eu tinha marcado uma reuni=E3o na Petrobras, =
+assim quinta ou sexta seriam mais simples para mim. Contudo podemos ir =
+na quarta sim. Veja o dia que for melhor para voc=EAs.
+>>>=20
+>>>         Luciano P Soares
+>>>=20
+>>> Em 16/7/12 10:52 PM, Luiz Velho escreveu:
+>>>=20
+>>> Oi Luciano,
+>>>=20
+>>> Vou ver com o Julio e dou um retorno...
+>>>=20
+>>> PS: Voces poderiam na quarta feira de tarde?
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Mon, Jul 16, 2012 at 03:38:19PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz e Djalma,
+>>>=20
+>>>      Ser=E1 que conseguimos encontrar com o Julio essa semana?
+>>> Quer=EDamos come=E7ar a trabalhar mais em conjunto. Acho que estamos
+>>> refazendo muito o que voc=EAs ja fizeram.
+>>>=20
+>>>          atenciosamente, Luciano P Soares
+>>>=20
+>>>=20
+>>> Em 22/6/12 7:55 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> OK. Combinado.
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>>=20
+>>> On Fri, Jun 22, 2012 at 06:21:07PM -0300, Luciano Pereira Soares =
+wrote:
+>>> =D3timo Luiz,
+>>>=20
+>>>      Ent=E3o estaremos indo nesse dia ent=E3o. Estarei levando =
+comigo o
+>>> Manuel Loaiza e possivelmente mais algum aluno de gradua=E7=E3o que =
+esta
+>>> no projeto. Vamos falar do que conseguimos at=E9 o momento com as
+>>> dicas que voc=EA nos deu.
+>>>=20
+>>>          Luciano P Soares
+>>>=20
+>>> Em 22/6/12 4:53 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> Pode ser na quinta feira, dia 28/06, as 15:30.
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Tue, Jun 19, 2012 at 10:41:07AM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz,
+>>>=20
+>>>      Semana que vem tem algum dia que voc=EA poderia receber a =
+gente?
+>>> Quinta e sexta a tarde parecem ser as melhores op=E7=F5es por aqui.
+>>>=20
+>>>          Luciano P Soares
+>>>=20
+>>> Em 6/6/12 10:32 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> Vamos entao combinar para quando voce voltar de viagem.
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Wed, Jun 06, 2012 at 09:00:49PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz,
+>>>=20
+>>>      Pior que dia 20 ja me chamaram para uma banca em Jo=E3o Pessoa =
+e
+>>> vou ficar l=E1 at=E9 o fim de semana.
+>>>=20
+>>>          Luciano P Soares
+>>>=20
+>>> Em 6/6/12 6:06 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> Eu tenho que sair do IMPA as 14:30 para ir ao hospital.
+>>> Assim, acho que ficaria apertado o tempo da reuniao...
+>>>=20
+>>> Poderia ser na quarta feira, dia 20/06 as 11:30hs ?
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>>=20
+>>> On Wed, Jun 06, 2012 at 05:02:07PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz,
+>>>=20
+>>>      O principal aluno que tenho trabalhando nesse projeto tem prova
+>>> das 9 as 13. Poderia ser depois desse hor=E1rio?
+>>>=20
+>>>          Luciano P Soares
+>>>=20
+>>> Em 5/6/12 11:48 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> OK!
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Tue, Jun 05, 2012 at 11:32:44PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ok, vou confirmar com o resto da equipe e te confirmo o mais r=E1pido
+>>> poss=EDvel.
+>>>=20
+>>>      Luciano P Soares
+>>>=20
+>>> Em 5/6/12 11:25 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> Voce poderia na sexta feira, dia 15/06 as 11:30?
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Tue, Jun 05, 2012 at 09:48:23PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz,
+>>>=20
+>>>      Esta semana acabou passando muito r=E1pido, por=E9m ja queria
+>>> conversar com voc=EAs sobre o que andamos fazendo, semana que vem =
+voc=EA
+>>> e seu pessoal teria tempo de encontrar conosco? Testamos alguns
+>>> softwares por=E9m os resultados ainda s=E3o preliminares.
+>>>=20
+>>>          Luciano P Soares
+>>>=20
+>>> Em 17/5/12 8:21 PM, Luiz Velho escreveu:
+>>> Oi Luciano,
+>>>=20
+>>> Legal! Entao, vamos combinar essa reuniao depois do dia 01/06.
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Thu, May 17, 2012 at 03:21:40PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz,
+>>>=20
+>>>      Ja fizemos diversos testes com o OpenLight e estamos agora
+>>> testando o RGBDemo. Os resultados foram bons. Acho tamb=E9m que a
+>>> equipe aqui esta finalmente montada, e ja estou em condi=E7=F5es de
+>>> conversar esses assuntos com voc=EA e sua equipe de como podemos
+>>> colaborar mais seriamente.
+>>>=20
+>>>      Semana que vem e na outra ainda vou estar muito enrolado por
+>>> causa da organiza=E7=E3o do SVR, por=E9m podemos marcar de nos
+>>> encontrarmos para depois do dia 1 de Junho?
+>>>=20
+>>>         atenciosamente, Luciano P Soares
+>>>=20
+>>> On 27/04/2012 23:21, Luiz Velho wrote:
+>>> Oi Luciano,
+>>>=20
+>>> Sim. Era o que eu tinha falado para voce...
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>>=20
+>>> On Fri, Apr 27, 2012 at 11:17:37PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz
+>>>=20
+>>>      O Livro do Ramesh e do Oliver pode ser baixado daqui:
+>>> http://www.uni-weimar.de/medien/ar/SpatialAR/download.php
+>>>=20
+>>> "Spatial Augmented Reality Merging                                   =
+                      Real and Virtual Worlds"
+>>>=20
+>>>          abra=E7os, Luciano P Soares
+>>>=20
+>>> On 27/04/12 00:00, Luiz Velho wrote:
+>>> Oi Luciano,
+>>>=20
+>>> Legal!
+>>>=20
+>>> Many thanks,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Thu, Apr 26, 2012 at 09:24:48PM -0300, Luciano Soares wrote:
+>>> Ola Luiz,
+>>>=20
+>>>    O artigo de m=FAltiplos kinects do Henry Fuchs.
+>>>=20
+>>>    J=E1 instalamos uns dos software de camera-projetor e ja estamos =
+tendo
+>>> alguns resultados.
+>>>=20
+>>>        abra=E7os, Luciano P Soares
+>>>=20
+>>> On Thu, Apr 26, 2012 at 8:04 PM, Luiz Velho<lvelho@impa.br>         =
+wrote:
+>>> Oi Luciano,
+>>>=20
+>>> OK! Ficamos em contato...
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>>=20
+>>> On Thu, Apr 26, 2012 at 03:05:57PM -0300, Luciano Pereira Soares =
+wrote:
+>>> Ola Luiz,
+>>>=20
+>>>      Ja pedi para meus alunos olharem isso. Espero ter isso
+>>> funcionando em breve.
+>>>=20
+>>>      Sobre os projetores a laser que falamos, aqui esta alguma
+>>> informa=E7=E3o. Tinha um com mais brilho, mas n=E3o estou            =
+                                               mais encontrando
+>>> o link. At=E9 o da Evans&                                            =
+                       Sutherland parece que foi descontinuado
+>>> como projetor convencional, pelo que ouvi falar agora s=F3 com a
+>>> solu=E7=E3o de domo.
+>>>=20
+>>>      http://www.es.com/News/2009/2009-05-19.html
+>>>      =
+http://www.microvision.com/pdfs/Scanned%20Laser%20Pico%20Projectors.pdf
+>>> =
+http://www.microvision.com/about_microvision/documents/Scanned%20Laser%20P=
+ico-Projector%20whitepaper.pdf
+>>>      http://www.aaxatech.com/products/l1_laser_pico_projector.htm
+>>> =
+http://www.microvision.com/showwxplus/index.php?option=3Dcom_content&view=3D=
+article&id=3D22&Itemid=3D37
+>>>=20
+>>>          atenciosamente, Luciano P Soares
+>>>=20
+>>> On 25/04/12 23:03, Luiz Velho wrote:
+>>> Oi Luciano,
+>>>=20
+>>> Estou enviando os links de projetos para calibracao do Kinect.
+>>>=20
+>>>=20
+>>> Kinect Calibration Toolbox
+>>> http://www.ee.oulu.fi/~dherrera/kinect/
+>>> http://sourceforge.net/projects/kinectcalib/
+>>>=20
+>>> Projector-Camera Calibration Library
+>>> Code: http://code.google.com/p/open-light
+>>> Documentation: =
+http://augmentedengineering.com/ProCamCalibration/doc/
+>>>=20
+>>> Kinect Calibration with OpenCV
+>>> http://www.informatik.uni-freiburg.de/~engelhar/calibration.html
+>>>=20
+>>>=20
+>>> []s,
+>>>=20
+>>> --Luiz
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                                           =
+                                  http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                                          =
+                                                                         =
+                         Tel: (5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone:  +55 21 2512-5984 (PUC)
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                                          =
+                                        Tel: (5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                                          =
+                                    Tel: (5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil                                 =
+                                    Fax: (5521)2512-4115
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares                    TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone: +55                              =
+                          21 2512-5984 (PUC)
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares                    TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone:  +55 21 2512-5984 (PUC)
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares                    TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone:  +55 21 2512-5984 (PUC)
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares                    TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone:  +55 21 2512-5984 (PUC)
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares                    TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone:  +55 21 2512-5984 (PUC)
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>>=20
+>>>=20
+>>> --=20
+>>> Luciano Pereira Soares                    TecGraf(PUC-Rio)
+>>> e-mail: lpsoares@gmail.com  /  lpsoares@tecgraf.puc-rio.br
+>>> mobile:  +55 21 8170-5717  /  phone:  +55 21 2512-5984 (PUC)
+>>>=20
+>>> =
+-----------------------------------------------------------------------
+>>> Luiz Velho                                   =
+http://www.impa.br/~lvelho
+>>> IMPA - Instituto de Matematica Pura e Aplicada
+>>> Estrada Dona Castorina, 110                        Tel: =
+(5521)2529-5000
+>>> 22460-320 Rio de Janeiro, RJ, Brazil               Fax: =
+(5521)2512-4115
+>>>=20
+>>>=20
+>>>=20
+>>>=20
+>>=20
+>=20
+>=20
+
+
+--Apple-Mail=_8C746296-4675-4C62-B96F-1E567694F88E
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=iso-8859-1
+
+<html><head></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; -webkit-line-break: after-white-space; ">Oi =
+Luciono.<div>Aqui Julio quem trabalha no VISGRAPH com o protejo de =
+realidade aumentada.</div><div>So queria dicer que si nao quiser, nao =
+precisa trazer o padr=E3o de calibracao, pois a gente j=E1 tem um no =
+lab.</div><div>Se ve amanha.</div><div><br></div><div><div><div>On 17 =
+Jul 2012, at 23:21, Luciano Pereira Soares wrote:</div><br =
+class=3D"Apple-interchange-newline"><blockquote type=3D"cite">
+ =20
+    <meta content=3D"text/html; charset=3DISO-8859-1" =
+http-equiv=3D"Content-Type">
+ =20
+  <div bgcolor=3D"#FFFFFF" text=3D"#000000">
+    Ok, estaremos l=E1.<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Temos o sistema do rgbdemo com um aplicativo =
+chamado
+    CamaraLucida rodando no meu notebook, vamos levar o padr=E3o de
+    calibra=E7=E3o ai podemos discutir se valhe a pena continuar com =
+isso. A
+    proposta deles =E9 interessante mas tem alguns incovenientes.<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; at=E9 l=E1, Luciano P =
+Soares<br>
+    <br>
+    <br>
+    <div class=3D"moz-cite-prefix">Em 17/7/12 5:35 PM, Julio Lucio
+      escreveu:<br>
+    </div>
+    <blockquote =
+cite=3D"mid:14374C32-11A9-479A-9EE4-F1F75AC2781F@gmail.com" =
+type=3D"cite">A gente se ve aqui.
+      <div><br>
+        <div>
+          <div>On 17 Jul 2012, at 17:33, Djalma Lucio wrote:</div>
+          <br class=3D"Apple-interchange-newline">
+          <blockquote type=3D"cite">Ol=E1&nbsp; a todos.<br>
+            <br>
+            A reuni=E3o ficou marcada para a quinta-feira(19/07) a =
+partir
+            das 13:30hs aqui no VISGRAF.<br>
+            <br>
+            []s<br>
+            Djalma.<br>
+            <br>
+            <div class=3D"gmail_quote">2012/7/17 Luciano Pereira Soares =
+<span dir=3D"ltr">&lt;<a moz-do-not-send=3D"true" =
+href=3D"mailto:lpsoares@gmail.com" =
+target=3D"_blank">lpsoares@gmail.com</a>&gt;</span><br>
+              <blockquote class=3D"gmail_quote" style=3D"margin:0 0 0
+                .8ex;border-left:1px #ccc solid;padding-left:1ex">Ola
+                Luiz,<br>
+                <br>
+                &nbsp; &nbsp; Podemos ir sim. Eu tinha marcado uma =
+reuni=E3o na
+                Petrobras, assim quinta ou sexta seriam mais simples
+                para mim. Contudo podemos ir na quarta sim. Veja o dia
+                que for melhor para voc=EAs.<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; Luciano P Soares<br>
+                <br>
+                Em 16/7/12 10:52 PM, Luiz Velho escreveu:
+                <div class=3D"HOEnZb">
+                  <div class=3D"h5"><br>
+                    <blockquote class=3D"gmail_quote" style=3D"margin:0 =
+0 0
+                      .8ex;border-left:1px #ccc solid;padding-left:1ex">
+                      Oi Luciano,<br>
+                      <br>
+                      Vou ver com o Julio e dou um retorno...<br>
+                      <br>
+                      PS: Voces poderiam na quarta feira de tarde?<br>
+                      <br>
+                      []s,<br>
+                      <br>
+                      --Luiz<br>
+                      <br>
+                      <br>
+                      On Mon, Jul 16, 2012 at 03:38:19PM -0300, Luciano
+                      Pereira Soares wrote:<br>
+                      <blockquote class=3D"gmail_quote" style=3D"margin:0 =
+0
+                        0 .8ex;border-left:1px #ccc
+                        solid;padding-left:1ex">
+                        Ola Luiz e Djalma,<br>
+                        <br>
+                        &nbsp; &nbsp; &nbsp;Ser=E1 que conseguimos =
+encontrar com o Julio
+                        essa semana?<br>
+                        Quer=EDamos come=E7ar a trabalhar mais em =
+conjunto.
+                        Acho que estamos<br>
+                        refazendo muito o que voc=EAs ja fizeram.<br>
+                        <br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp;atenciosamente, Luciano P Soares<br>
+                        <br>
+                        <br>
+                        Em 22/6/12 7:55 PM, Luiz Velho escreveu:<br>
+                        <blockquote class=3D"gmail_quote" =
+style=3D"margin:0
+                          0 0 .8ex;border-left:1px #ccc
+                          solid;padding-left:1ex">
+                          Oi Luciano,<br>
+                          <br>
+                          OK. Combinado.<br>
+                          <br>
+                          []s,<br>
+                          <br>
+                          --Luiz<br>
+                          <br>
+                          <br>
+                          <br>
+                          On Fri, Jun 22, 2012 at 06:21:07PM -0300,
+                          Luciano Pereira Soares wrote:<br>
+                          <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0 .8ex;border-left:1px
+                            #ccc solid;padding-left:1ex">
+                            =D3timo Luiz,<br>
+                            <br>
+                            &nbsp; &nbsp; &nbsp;Ent=E3o estaremos indo =
+nesse dia ent=E3o.
+                            Estarei levando comigo o<br>
+                            Manuel Loaiza e possivelmente mais algum
+                            aluno de gradua=E7=E3o que esta<br>
+                            no projeto. Vamos falar do que conseguimos
+                            at=E9 o momento com as<br>
+                            dicas que voc=EA nos deu.<br>
+                            <br>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Luciano P =
+Soares<br>
+                            <br>
+                            Em 22/6/12 4:53 PM, Luiz Velho escreveu:<br>
+                            <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0 .8ex;border-left:1px
+                              #ccc solid;padding-left:1ex">
+                              Oi Luciano,<br>
+                              <br>
+                              Pode ser na quinta feira, dia 28/06, as
+                              15:30.<br>
+                              <br>
+                              []s,<br>
+                              <br>
+                              --Luiz<br>
+                              <br>
+                              <br>
+                              On Tue, Jun 19, 2012 at 10:41:07AM -0300,
+                              Luciano Pereira Soares wrote:<br>
+                              <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0 .8ex;border-left:1px
+                                #ccc solid;padding-left:1ex">
+                                Ola Luiz,<br>
+                                <br>
+                                &nbsp; &nbsp; &nbsp;Semana que vem tem =
+algum dia que
+                                voc=EA poderia receber a gente?<br>
+                                Quinta e sexta a tarde parecem ser as
+                                melhores op=E7=F5es por aqui.<br>
+                                <br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp;Luciano P Soares<br>
+                                <br>
+                                Em 6/6/12 10:32 PM, Luiz Velho =
+escreveu:<br>
+                                <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0
+                                  .8ex;border-left:1px #ccc
+                                  solid;padding-left:1ex">
+                                  Oi Luciano,<br>
+                                  <br>
+                                  Vamos entao combinar para quando voce
+                                  voltar de viagem.<br>
+                                  <br>
+                                  []s,<br>
+                                  <br>
+                                  --Luiz<br>
+                                  <br>
+                                  <br>
+                                  On Wed, Jun 06, 2012 at 09:00:49PM
+                                  -0300, Luciano Pereira Soares =
+wrote:<br>
+                                  <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0
+                                    .8ex;border-left:1px #ccc
+                                    solid;padding-left:1ex">
+                                    Ola Luiz,<br>
+                                    <br>
+                                    &nbsp; &nbsp; &nbsp;Pior que dia 20 =
+ja me chamaram
+                                    para uma banca em Jo=E3o Pessoa =
+e<br>
+                                    vou ficar l=E1 at=E9 o fim de =
+semana.<br>
+                                    <br>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp;Luciano P Soares<br>
+                                    <br>
+                                    Em 6/6/12 6:06 PM, Luiz Velho
+                                    escreveu:<br>
+                                    <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0
+                                      .8ex;border-left:1px #ccc
+                                      solid;padding-left:1ex">
+                                      Oi Luciano,<br>
+                                      <br>
+                                      Eu tenho que sair do IMPA as 14:30
+                                      para ir ao hospital.<br>
+                                      Assim, acho que ficaria apertado o
+                                      tempo da reuniao...<br>
+                                      <br>
+                                      Poderia ser na quarta feira, dia
+                                      20/06 as 11:30hs ?<br>
+                                      <br>
+                                      []s,<br>
+                                      <br>
+                                      --Luiz<br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      On Wed, Jun 06, 2012 at 05:02:07PM
+                                      -0300, Luciano Pereira Soares
+                                      wrote:<br>
+                                      <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0
+                                        .8ex;border-left:1px #ccc
+                                        solid;padding-left:1ex">
+                                        Ola Luiz,<br>
+                                        <br>
+                                        &nbsp; &nbsp; &nbsp;O principal =
+aluno que tenho
+                                        trabalhando nesse projeto tem
+                                        prova<br>
+                                        das 9 as 13. Poderia ser depois
+                                        desse hor=E1rio?<br>
+                                        <br>
+                                        &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp;Luciano P Soares<br>
+                                        <br>
+                                        Em 5/6/12 11:48 PM, Luiz Velho
+                                        escreveu:<br>
+                                        <blockquote class=3D"gmail_quote" =
+style=3D"margin:0 0 0
+                                          .8ex;border-left:1px #ccc
+                                          solid;padding-left:1ex">
+                                          Oi Luciano,<br>
+                                          <br>
+                                          OK!<br>
+                                          <br>
+                                          []s,<br>
+                                          <br>
+                                          --Luiz<br>
+                                          <br>
+                                          <br>
+                                          On Tue, Jun 05, 2012 at
+                                          11:32:44PM -0300, Luciano
+                                          Pereira Soares wrote:<br>
+                                          <blockquote =
+class=3D"gmail_quote" style=3D"margin:0 0 0
+                                            .8ex;border-left:1px #ccc
+                                            solid;padding-left:1ex">
+                                            Ok, vou confirmar com o
+                                            resto da equipe e te
+                                            confirmo o mais r=E1pido<br>
+                                            poss=EDvel.<br>
+                                            <br>
+                                            &nbsp; &nbsp; &nbsp;Luciano =
+P Soares<br>
+                                            <br>
+                                            Em 5/6/12 11:25 PM, Luiz
+                                            Velho escreveu:<br>
+                                            <blockquote =
+class=3D"gmail_quote" style=3D"margin:0 0 0
+                                              .8ex;border-left:1px #ccc
+                                              solid;padding-left:1ex">
+                                              Oi Luciano,<br>
+                                              <br>
+                                              Voce poderia na sexta
+                                              feira, dia 15/06 as =
+11:30?<br>
+                                              <br>
+                                              []s,<br>
+                                              <br>
+                                              --Luiz<br>
+                                              <br>
+                                              <br>
+                                              On Tue, Jun 05, 2012 at
+                                              09:48:23PM -0300, Luciano
+                                              Pereira Soares wrote:<br>
+                                              <blockquote =
+class=3D"gmail_quote" style=3D"margin:0 0 0
+                                                .8ex;border-left:1px
+                                                #ccc
+                                                solid;padding-left:1ex">
+                                                Ola Luiz,<br>
+                                                <br>
+                                                &nbsp; &nbsp; &nbsp;Esta =
+semana acabou
+                                                passando muito r=E1pido,
+                                                por=E9m ja queria<br>
+                                                conversar com voc=EAs
+                                                sobre o que andamos
+                                                fazendo, semana que vem
+                                                voc=EA<br>
+                                                e seu pessoal teria
+                                                tempo de encontrar
+                                                conosco? Testamos =
+alguns<br>
+                                                softwares por=E9m os
+                                                resultados ainda s=E3o
+                                                preliminares.<br>
+                                                <br>
+                                                &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp;Luciano P
+                                                Soares<br>
+                                                <br>
+                                                Em 17/5/12 8:21 PM, Luiz
+                                                Velho escreveu:<br>
+                                                <blockquote =
+class=3D"gmail_quote" style=3D"margin:0 0 0
+                                                  .8ex;border-left:1px
+                                                  #ccc
+                                                  =
+solid;padding-left:1ex">
+                                                  Oi Luciano,<br>
+                                                  <br>
+                                                  Legal! Entao, vamos
+                                                  combinar essa reuniao
+                                                  depois do dia =
+01/06.<br>
+                                                  <br>
+                                                  []s,<br>
+                                                  <br>
+                                                  --Luiz<br>
+                                                  <br>
+                                                  <br>
+                                                  On Thu, May 17, 2012
+                                                  at 03:21:40PM -0300,
+                                                  Luciano Pereira Soares
+                                                  wrote:<br>
+                                                  <blockquote =
+class=3D"gmail_quote" style=3D"margin:0 0 0
+                                                    .8ex;border-left:1px
+                                                    #ccc
+                                                    =
+solid;padding-left:1ex">
+                                                    Ola Luiz,<br>
+                                                    <br>
+                                                    &nbsp; &nbsp; =
+&nbsp;Ja fizemos
+                                                    diversos testes com
+                                                    o OpenLight e
+                                                    estamos agora<br>
+                                                    testando o RGBDemo.
+                                                    Os resultados foram
+                                                    bons. Acho tamb=E9m
+                                                    que a<br>
+                                                    equipe aqui esta
+                                                    finalmente montada,
+                                                    e ja estou em
+                                                    condi=E7=F5es de<br>
+                                                    conversar esses
+                                                    assuntos com voc=EA =
+e
+                                                    sua equipe de como
+                                                    podemos<br>
+                                                    colaborar mais
+                                                    seriamente.<br>
+                                                    <br>
+                                                    &nbsp; &nbsp; =
+&nbsp;Semana que vem
+                                                    e na outra ainda vou
+                                                    estar muito enrolado
+                                                    por<br>
+                                                    causa da organiza=E7=E3=
+o
+                                                    do SVR, por=E9m
+                                                    podemos marcar de
+                                                    nos<br>
+                                                    encontrarmos para
+                                                    depois do dia 1 de
+                                                    Junho?<br>
+                                                    <br>
+                                                    &nbsp; &nbsp; &nbsp; =
+&nbsp;
+                                                    atenciosamente,
+                                                    Luciano P Soares<br>
+                                                    <br>
+                                                    On 27/04/2012 23:21,
+                                                    Luiz Velho =
+wrote:<br>
+                                                    <blockquote =
+class=3D"gmail_quote" style=3D"margin:0 0
+                                                      0
+                                                      =
+.8ex;border-left:1px
+                                                      #ccc
+                                                      =
+solid;padding-left:1ex">
+                                                      Oi Luciano,<br>
+                                                      <br>
+                                                      Sim. Era o que eu
+                                                      tinha falado para
+                                                      voce...<br>
+                                                      <br>
+                                                      []s,<br>
+                                                      <br>
+                                                      --Luiz<br>
+                                                      <br>
+                                                      <br>
+                                                      <br>
+                                                      On Fri, Apr 27,
+                                                      2012 at 11:17:37PM
+                                                      -0300, Luciano
+                                                      Pereira Soares
+                                                      wrote:<br>
+                                                      <blockquote =
+class=3D"gmail_quote" style=3D"margin:0
+                                                        0 0
+                                                        =
+.8ex;border-left:1px
+                                                        #ccc
+                                                        =
+solid;padding-left:1ex">
+                                                        Ola Luiz<br>
+                                                        <br>
+                                                        &nbsp; &nbsp; =
+&nbsp;O Livro do
+                                                        Ramesh e do
+                                                        Oliver pode ser
+                                                        baixado =
+daqui:<br>
+                                                        <a =
+moz-do-not-send=3D"true" =
+href=3D"http://www.uni-weimar.de/medien/ar/SpatialAR/download.php" =
+target=3D"_blank">http://www.uni-weimar.de/medien/ar/SpatialAR/download.ph=
+p</a><br>
+                                                        <br>
+                                                        "Spatial
+                                                        Augmented
+                                                        Reality Merging
+                                                        Real and Virtual
+                                                        Worlds"<br>
+                                                        <br>
+                                                        &nbsp; &nbsp; =
+&nbsp; &nbsp;
+                                                        &nbsp;abra=E7os,
+                                                        Luciano P =
+Soares<br>
+                                                        <br>
+                                                        On 27/04/12
+                                                        00:00, Luiz
+                                                        Velho wrote:<br>
+                                                        <blockquote =
+class=3D"gmail_quote" style=3D"margin:0
+                                                          0 0
+                                                          =
+.8ex;border-left:1px
+                                                          #ccc
+                                                          =
+solid;padding-left:1ex">
+                                                          Oi =
+Luciano,<br>
+                                                          <br>
+                                                          Legal!<br>
+                                                          <br>
+                                                          Many =
+thanks,<br>
+                                                          <br>
+                                                          --Luiz<br>
+                                                          <br>
+                                                          <br>
+                                                          On Thu, Apr
+                                                          26, 2012 at
+                                                          09:24:48PM
+                                                          -0300, Luciano
+                                                          Soares =
+wrote:<br>
+                                                          <blockquote =
+class=3D"gmail_quote" style=3D"margin:0
+                                                          0 0
+                                                          =
+.8ex;border-left:1px
+                                                          #ccc
+                                                          =
+solid;padding-left:1ex">
+                                                          Ola Luiz,<br>
+                                                          <br>
+                                                          &nbsp; &nbsp;O =
+artigo de
+                                                          m=FAltiplos
+                                                          kinects do
+                                                          Henry =
+Fuchs.<br>
+                                                          <br>
+                                                          &nbsp; =
+&nbsp;J=E1
+                                                          instalamos uns
+                                                          dos software
+                                                          de
+                                                          =
+camera-projetor
+                                                          e ja estamos
+                                                          tendo<br>
+                                                          alguns
+                                                          =
+resultados.<br>
+                                                          <br>
+                                                          &nbsp; &nbsp; =
+&nbsp;
+                                                          &nbsp;abra=E7os,=
+
+                                                          Luciano P
+                                                          Soares<br>
+                                                          <br>
+                                                          On Thu, Apr
+                                                          26, 2012 at
+                                                          8:04 PM, Luiz
+                                                          Velho&lt;<a =
+moz-do-not-send=3D"true" href=3D"mailto:lvelho@impa.br" =
+target=3D"_blank">lvelho@impa.br</a>&gt; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+wrote:<br>
+                                                          <blockquote =
+class=3D"gmail_quote" style=3D"margin:0
+                                                          0 0
+                                                          =
+.8ex;border-left:1px
+                                                          #ccc
+                                                          =
+solid;padding-left:1ex">
+                                                          Oi =
+Luciano,<br>
+                                                          <br>
+                                                          OK! Ficamos em
+                                                          contato...<br>
+                                                          <br>
+                                                          []s,<br>
+                                                          <br>
+                                                          --Luiz<br>
+                                                          <br>
+                                                          <br>
+                                                          On Thu, Apr
+                                                          26, 2012 at
+                                                          03:05:57PM
+                                                          -0300, Luciano
+                                                          Pereira Soares
+                                                          wrote:<br>
+                                                          <blockquote =
+class=3D"gmail_quote" style=3D"margin:0
+                                                          0 0
+                                                          =
+.8ex;border-left:1px
+                                                          #ccc
+                                                          =
+solid;padding-left:1ex">
+                                                          Ola Luiz,<br>
+                                                          <br>
+                                                          &nbsp; &nbsp; =
+&nbsp;Ja pedi
+                                                          para meus
+                                                          alunos olharem
+                                                          isso. Espero
+                                                          ter isso<br>
+                                                          funcionando em
+                                                          breve.<br>
+                                                          <br>
+                                                          &nbsp; &nbsp; =
+&nbsp;Sobre os
+                                                          projetores a
+                                                          laser que
+                                                          falamos, aqui
+                                                          esta =
+alguma<br>
+                                                          informa=E7=E3o.
+                                                          Tinha um com
+                                                          mais brilho,
+                                                          mas n=E3o =
+estou
+                                                          mais
+                                                          =
+encontrando<br>
+                                                          o link. At=E9 =
+o
+                                                          da Evans&amp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp;
+                                                          Sutherland
+                                                          parece que foi
+                                                          =
+descontinuado<br>
+                                                          como projetor
+                                                          convencional,
+                                                          pelo que ouvi
+                                                          falar agora s=F3=
+
+                                                          com a<br>
+                                                          solu=E7=E3o de
+                                                          domo.<br>
+                                                          <br>
+                                                          &nbsp; &nbsp; =
+&nbsp;<a moz-do-not-send=3D"true" =
+href=3D"http://www.es.com/News/2009/2009-05-19.html" =
+target=3D"_blank">http://www.es.com/News/2009/2009-05-19.html</a><br>
+                                                          &nbsp; &nbsp; =
+&nbsp;<a moz-do-not-send=3D"true" =
+href=3D"http://www.microvision.com/pdfs/Scanned%20Laser%20Pico%20Projector=
+s.pdf" =
+target=3D"_blank">http://www.microvision.com/pdfs/Scanned%20Laser%20Pico%2=
+0Projectors.pdf</a><br>
+                                                          <a =
+moz-do-not-send=3D"true" =
+href=3D"http://www.microvision.com/about_microvision/documents/Scanned%20L=
+aser%20Pico-Projector%20whitepaper.pdf" =
+target=3D"_blank">http://www.microvision.com/about_microvision/documents/S=
+canned%20Laser%20Pico-Projector%20whitepaper.pdf</a><br>
+                                                          &nbsp; &nbsp; =
+&nbsp;<a moz-do-not-send=3D"true" =
+href=3D"http://www.aaxatech.com/products/l1_laser_pico_projector.htm" =
+target=3D"_blank">http://www.aaxatech.com/products/l1_laser_pico_projector=
+.htm</a><br>
+                                                          <a =
+moz-do-not-send=3D"true" =
+href=3D"http://www.microvision.com/showwxplus/index.php?option=3Dcom_conte=
+nt&amp;view=3Darticle&amp;id=3D22&amp;Itemid=3D37" =
+target=3D"_blank">http://www.microvision.com/showwxplus/index.php?option=3D=
+com_content&amp;view=3Darticle&amp;id=3D22&amp;Itemid=3D37</a><br>
+                                                          <br>
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp;
+                                                          =
+&nbsp;atenciosamente,
+                                                          Luciano P
+                                                          Soares<br>
+                                                          <br>
+                                                          On 25/04/12
+                                                          23:03, Luiz
+                                                          Velho =
+wrote:<br>
+                                                          <blockquote =
+class=3D"gmail_quote" style=3D"margin:0
+                                                          0 0
+                                                          =
+.8ex;border-left:1px
+                                                          #ccc
+                                                          =
+solid;padding-left:1ex">
+                                                          Oi =
+Luciano,<br>
+                                                          <br>
+                                                          Estou enviando
+                                                          os links de
+                                                          projetos para
+                                                          calibracao do
+                                                          Kinect.<br>
+                                                          <br>
+                                                          <br>
+                                                          Kinect
+                                                          Calibration
+                                                          Toolbox<br>
+                                                          <a =
+moz-do-not-send=3D"true" =
+href=3D"http://www.ee.oulu.fi/%7Edherrera/kinect/" =
+target=3D"_blank">http://www.ee.oulu.fi/~dherrera/kinect/</a><br>
+                                                          <a =
+moz-do-not-send=3D"true" =
+href=3D"http://sourceforge.net/projects/kinectcalib/" =
+target=3D"_blank">http://sourceforge.net/projects/kinectcalib/</a><br>
+                                                          <br>
+                                                          =
+Projector-Camera
+                                                          Calibration
+                                                          Library<br>
+                                                          Code: <a =
+moz-do-not-send=3D"true" href=3D"http://code.google.com/p/open-light" =
+target=3D"_blank">http://code.google.com/p/open-light</a><br>
+                                                          Documentation:
+                                                          <a =
+moz-do-not-send=3D"true" =
+href=3D"http://augmentedengineering.com/ProCamCalibration/doc/" =
+target=3D"_blank">http://augmentedengineering.com/ProCamCalibration/doc/</=
+a><br>
+                                                          <br>
+                                                          Kinect
+                                                          Calibration
+                                                          with =
+OpenCV<br>
+                                                          <a =
+moz-do-not-send=3D"true" =
+href=3D"http://www.informatik.uni-freiburg.de/%7Eengelhar/calibration.html=
+" =
+target=3D"_blank">http://www.informatik.uni-freiburg.de/~engelhar/calibrat=
+ion.html</a><br>
+                                                          <br>
+                                                          <br>
+                                                          []s,<br>
+                                                          <br>
+                                                          --Luiz<br>
+                                                          <br>
+=
+-----------------------------------------------------------------------<br=
+>
+                                                          Luiz Velho =
+&nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; <a =
+moz-do-not-send=3D"true" href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                                          IMPA -
+                                                          Instituto de
+                                                          Matematica
+                                                          Pura e
+                                                          Aplicada<br>
+                                                          Estrada Dona
+                                                          Castorina, 110
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp;Tel:
+(5521)2529-5000<br>
+                                                          22460-320 Rio
+                                                          de Janeiro,
+                                                          RJ, Brazil =
+&nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; Fax:
+(5521)2512-4115<br>
+                                                          <br>
+                                                          </blockquote>
+                                                          </blockquote>
+=
+-----------------------------------------------------------------------<br=
+>
+                                                          Luiz Velho =
+&nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; <a =
+moz-do-not-send=3D"true" href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                                          IMPA -
+                                                          Instituto de
+                                                          Matematica
+                                                          Pura e
+                                                          Aplicada<br>
+                                                          Estrada Dona
+                                                          Castorina, 110
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp;Tel:
+(5521)2529-5000<br>
+                                                          22460-320 Rio
+                                                          de Janeiro,
+                                                          RJ, Brazil =
+&nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; Fax:
+(5521)2512-4115<br>
+                                                          <br>
+                                                          </blockquote>
+                                                          -- <br>
+                                                          Luciano
+                                                          Pereira Soares
+TecGraf(PUC-Rio)<br>
+                                                          e-mail: <a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@gmail.com" =
+target=3D"_blank">lpsoares@gmail.com</a>
+                                                          &nbsp;/ =
+&nbsp;<a moz-do-not-send=3D"true" =
+href=3D"mailto:lpsoares@tecgraf.puc-rio.br" =
+target=3D"_blank">lpsoares@tecgraf.puc-rio.br</a><br>
+                                                          mobile: <a =
+moz-do-not-send=3D"true" href=3D"tel:%2B55%2021%208170-5717" =
+value=3D"+552181705717" target=3D"_blank">+55
+                                                          21 =
+8170-5717</a>
+                                                          &nbsp;/ =
+&nbsp;phone: <a moz-do-not-send=3D"true" =
+href=3D"tel:%2B55%2021%202512-5984" value=3D"+552125125984" =
+target=3D"_blank"> +55 21 2512-5984</a> (PUC)<br>
+                                                          </blockquote>
+=
+-----------------------------------------------------------------------<br=
+>
+                                                          Luiz Velho =
+&nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; <a =
+moz-do-not-send=3D"true" href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                                          IMPA -
+                                                          Instituto de
+                                                          Matematica
+                                                          Pura e
+                                                          Aplicada<br>
+                                                          Estrada Dona
+                                                          Castorina, 110
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp;Tel:
+(5521)2529-5000<br>
+                                                          22460-320 Rio
+                                                          de Janeiro,
+                                                          RJ, Brazil =
+&nbsp; &nbsp;
+                                                          &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; Fax:
+(5521)2512-4115<br>
+                                                          <br>
+                                                        </blockquote>
+                                                      </blockquote>
+=
+-----------------------------------------------------------------------<br=
+>
+                                                      Luiz Velho &nbsp; =
+&nbsp; &nbsp; &nbsp;
+                                                      &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                      &nbsp; &nbsp; =
+&nbsp; &nbsp; <a moz-do-not-send=3D"true" =
+href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                                      IMPA - Instituto
+                                                      de Matematica Pura
+                                                      e Aplicada<br>
+                                                      Estrada Dona
+                                                      Castorina, 110 =
+&nbsp; &nbsp;
+                                                      &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                      &nbsp;Tel:
+                                                      =
+(5521)2529-5000<br>
+                                                      22460-320 Rio de
+                                                      Janeiro, RJ,
+                                                      Brazil &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                      &nbsp; Fax:
+                                                      =
+(5521)2512-4115<br>
+                                                      <br>
+                                                    </blockquote>
+                                                    -- <br>
+                                                    Luciano Pereira
+                                                    Soares &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                    &nbsp; &nbsp;
+                                                    =
+&nbsp;TecGraf(PUC-Rio)<br>
+                                                    e-mail: <a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@gmail.com" =
+target=3D"_blank">lpsoares@gmail.com</a>
+                                                    &nbsp;/ &nbsp;<a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@tecgraf.puc-rio.br" =
+target=3D"_blank">lpsoares@tecgraf.puc-rio.br</a><br>
+                                                    mobile: <a =
+moz-do-not-send=3D"true" href=3D"tel:%2B55%2021%208170-5717" =
+value=3D"+552181705717" target=3D"_blank">+55
+                                                      21 8170-5717</a>
+                                                    &nbsp;/ &nbsp;phone: =
+<a moz-do-not-send=3D"true" href=3D"tel:%2B55%2021%202512-5984" =
+value=3D"+552125125984" target=3D"_blank">+55
+                                                      21 2512-5984</a>
+                                                    (PUC)<br>
+                                                    <br>
+                                                  </blockquote>
+=
+-----------------------------------------------------------------------<br=
+>
+                                                  Luiz Velho &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                  &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                  <a =
+moz-do-not-send=3D"true" href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                                  IMPA - Instituto de
+                                                  Matematica Pura e
+                                                  Aplicada<br>
+                                                  Estrada Dona
+                                                  Castorina, 110 &nbsp; =
+&nbsp; &nbsp; &nbsp;
+                                                  &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tel:
+                                                  (5521)2529-5000<br>
+                                                  22460-320 Rio de
+                                                  Janeiro, RJ, Brazil =
+&nbsp;
+                                                  &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; Fax:
+                                                  (5521)2512-4115<br>
+                                                  <br>
+                                                  <br>
+                                                  -- <br>
+                                                  Luciano Pereira Soares
+                                                  &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                  =
+&nbsp;TecGraf(PUC-Rio)<br>
+                                                  e-mail: <a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@gmail.com" =
+target=3D"_blank">lpsoares@gmail.com</a>
+                                                  &nbsp;/ &nbsp;<a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@tecgraf.puc-rio.br" =
+target=3D"_blank">lpsoares@tecgraf.puc-rio.br</a><br>
+                                                  mobile: <a =
+moz-do-not-send=3D"true" href=3D"tel:%2B55%2021%208170-5717" =
+value=3D"+552181705717" target=3D"_blank">+55
+                                                    21 8170-5717</a> =
+&nbsp;/
+                                                  &nbsp;phone: <a =
+moz-do-not-send=3D"true" href=3D"tel:%2B55%2021%202512-5984" =
+value=3D"+552125125984" target=3D"_blank">+55
+                                                    21 2512-5984</a>
+                                                  (PUC)<br>
+                                                </blockquote>
+                                              </blockquote>
+=
+-----------------------------------------------------------------------<br=
+>
+                                              Luiz Velho &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                              &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a moz-do-not-send=3D"true" =
+href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                              IMPA - Instituto de
+                                              Matematica Pura e =
+Aplicada<br>
+                                              Estrada Dona Castorina,
+                                              110 &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                              &nbsp;Tel: =
+(5521)2529-5000<br>
+                                              22460-320 Rio de Janeiro,
+                                              RJ, Brazil &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                              Fax: (5521)2512-4115<br>
+                                              <br>
+                                              <br>
+                                              -- <br>
+                                              Luciano Pereira Soares =
+&nbsp; &nbsp;
+                                              &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp;
+                                              &nbsp;TecGraf(PUC-Rio)<br>
+                                              e-mail: <a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@gmail.com" =
+target=3D"_blank">lpsoares@gmail.com</a>
+                                              &nbsp;/ &nbsp;<a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@tecgraf.puc-rio.br" =
+target=3D"_blank">lpsoares@tecgraf.puc-rio.br</a><br>
+                                              mobile: <a =
+moz-do-not-send=3D"true" href=3D"tel:%2B55%2021%208170-5717" =
+value=3D"+552181705717" target=3D"_blank">+55 21
+                                                8170-5717</a> &nbsp;/ =
+&nbsp;phone:
+                                              <a moz-do-not-send=3D"true" =
+href=3D"tel:%2B55%2021%202512-5984" value=3D"+552125125984" =
+target=3D"_blank">+55
+                                                21 2512-5984</a> =
+(PUC)<br>
+                                            </blockquote>
+                                          </blockquote>
+                                          =
+-----------------------------------------------------------------------<br=
+>
+                                          Luiz Velho &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                          &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; <a moz-do-not-send=3D"true" =
+href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                          IMPA - Instituto de Matematica
+                                          Pura e Aplicada<br>
+                                          Estrada Dona Castorina, 110 =
+&nbsp;
+                                          &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tel:
+                                          (5521)2529-5000<br>
+                                          22460-320 Rio de Janeiro, RJ,
+                                          Brazil &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; Fax:
+                                          (5521)2512-4115<br>
+                                          <br>
+                                        </blockquote>
+                                      </blockquote>
+                                      =
+-----------------------------------------------------------------------<br=
+>
+                                      Luiz Velho &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+<a moz-do-not-send=3D"true" href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                      IMPA - Instituto de Matematica
+                                      Pura e Aplicada<br>
+                                      Estrada Dona Castorina, 110 &nbsp; =
+&nbsp; &nbsp;
+                                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp;Tel:
+                                      (5521)2529-5000<br>
+                                      22460-320 Rio de Janeiro, RJ,
+                                      Brazil &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; Fax:
+                                      (5521)2512-4115<br>
+                                      <br>
+                                    </blockquote>
+                                  </blockquote>
+                                  =
+-----------------------------------------------------------------------<br=
+>
+                                  Luiz Velho &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                  &nbsp; &nbsp; &nbsp; <a =
+moz-do-not-send=3D"true" href=3D"http://www.impa.br/%7Elvelho" =
+target=3D"_blank">http://www.impa.br/~lvelho</a><br>
+                                  IMPA - Instituto de Matematica Pura e
+                                  Aplicada<br>
+                                  Estrada Dona Castorina, 110 &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp;
+                                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp;Tel: (5521)2529-5000<br>
+                                  22460-320 Rio de Janeiro, RJ, Brazil =
+&nbsp;
+                                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; Fax: (5521)2512-4115<br>
+                                  <br>
+                                  <br>
+                                  -- <br>
+                                  Luciano Pereira Soares &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                  &nbsp; &nbsp;TecGraf(PUC-Rio)<br>
+                                  e-mail: <a moz-do-not-send=3D"true" =
+href=3D"mailto:lpsoares@gmail.com" =
+target=3D"_blank">lpsoares@gmail.com</a>
+                                  &nbsp;/ &nbsp;<a =
+moz-do-not-send=3D"true" href=3D"mailto:lpsoares@tecgraf.puc-rio.br" =
+target=3D"_blank">lpsoares@tecgraf.puc-rio.br</a><br>
+                                  mobile: <a moz-do-not-send=3D"true" =
+href=3D"tel:%2B55%2021%208170-5717" value=3D"+552181705717" =
+target=3D"_blank">

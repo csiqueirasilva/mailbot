@@ -1,4 +1,7 @@
 #include "mail.hpp"
+#include <ctime>
+#include <cstdio>
+#include <cstring>
 
 namespace mailbot {
 
@@ -17,25 +20,26 @@ namespace mailbot {
             delete this->body ;
         }// IF
 
-        if ( this->attachments != NULL )
-        {
-            for ( std::list<std::string *>::iterator it = this->cc->begin(); it != this->cc->end() ; it++ )
-            {
-                delete *it ;
-            }// FOR
-
-            delete this->cc ;
-
-        }// IF
-
-        if ( this->to )
-        {
-            delete this->to ;
-        }// IF
+//        if ( this->to )
+//        {
+//            delete this->to ;
+//        }// IF
 
         if ( this->messageId )
         {
             delete this->messageId ;
+        }// IF
+
+        if ( this->attachments != NULL )
+        {
+            for ( std::list<Attachment *>::iterator it = this->attachments->begin() ; it != this->attachments->end() ; it++ )
+            {
+                remove((*(*it)->getPath() + *(*it)->getName()).c_str());
+                delete *it ;
+            }// FOR
+
+            delete this->attachments ;
+
         }// IF
 
         if ( this->inReplyTo )
@@ -48,17 +52,6 @@ namespace mailbot {
             delete this->deliveredTo ;
         }// IF
 
-        if ( this->attachments )
-        {
-            for ( std::list<Attachment *>::iterator it = this->attachments->begin(); it != this->attachments->end() ; it++ )
-            {
-                delete *it ;
-            }// FOR
-
-            delete this->attachments ;
-
-        }// IF
-
         if ( this->subject )
         {
             delete this->subject ;
@@ -69,10 +62,15 @@ namespace mailbot {
             delete this->userAgent ;
         }// IF
 
-        if ( this->bcc )
-        {
-            delete this->bcc ;
-        }// IF
+//        if ( this->bcc )
+//        {
+//            delete this->bcc ;
+//        }// IF
+
+//        if ( this->cc )
+//        {
+//            delete this->cc ;
+//        }// IF
 
         if ( this->organization )
         {
@@ -113,21 +111,6 @@ namespace mailbot {
 
 //    std::list<std::string *> * cc ;
 //    std::string * to ;
-//    std::list<Attachment *> * attachments ;
-
-        // get userAgent
-        try
-        {
-            throw hdr->UserAgent()->getValue()->generate() ;
-        }// try
-        catch ( vmime::exception e )
-        {
-            this->userAgent = NULL ;
-        }// catch
-        catch ( std::string e )
-        {
-            this->userAgent = new std::string(e);
-        }// catch
 
         // get userAgent
         try
@@ -240,29 +223,62 @@ namespace mailbot {
         vmime::ref<const vmime::contentHandler> cts;
 
         //Get the first available body part
-
-        vmime::ref<const vmime::textPart> tp = mp.getTextPartAt(0) ;
-
-        //If it is HTML, get the plain text
-        if(tp->getType().getSubType() == vmime::mediaTypes::TEXT_HTML)
+        for( int i = 0 ; i < mp.getTextPartCount() ; i++ )
         {
+            vmime::ref<const vmime::textPart> tp = mp.getTextPartAt(i) ;
 
-            vmime::ref <const vmime::htmlTextPart> htp =
-            tp.dynamicCast <const vmime::htmlTextPart>() ;
+            //If it is HTML, get the plain text
+            if(tp->getType().getSubType() == vmime::mediaTypes::TEXT_HTML)
+            {
+                vmime::ref <const vmime::htmlTextPart> htp =
+                tp.dynamicCast <const vmime::htmlTextPart>() ;
 
-            cts = htp->getPlainText();
-
-        }/* IF */
-        else // Or get just get what it is there
-        {
-
-            cts = tp->getText();
-
-        }/* ELSE */
+                cts = htp->getPlainText();
+                break ;
+            }// IF
+            else if ( tp->getType().getSubType() == vmime::mediaTypes::TEXT_PLAIN ) // Or get just get what it is there
+            {
+                cts = tp->getText();
+                break ;
+            }// ELSE
+        }// FOR
 
         //Finish the output into the body variable
         cts->extract(out) ;
         out.flush();
+
+        if ( mp.getAttachmentCount() > 0 )
+        {
+
+            this->attachments = new std::list<Attachment *> ;
+
+            for ( int i = 0 ; i < mp.getAttachmentCount() ; i++ )
+            {
+                vmime::ref<const vmime::attachment> att = mp.getAttachmentAt(i) ;
+                char szBuffer[255] ;
+                char folBuffer[255] = DEFAULT_ATTACHMENT_FOLDER ;
+                sprintf(szBuffer, "%d%s",static_cast<int>(time(NULL)),att->getName().generate().c_str()) ;
+
+                Attachment * parsedAtt = new Attachment(szBuffer, folBuffer , att->getType().generate().c_str() ) ;
+
+                std::ofstream outFile(strcat(folBuffer,szBuffer)) ;
+
+                vmime::utility::outputStreamAdapter adpFile(outFile) ;
+
+                att->getData()->extract(adpFile) ;
+                adpFile.flush() ;
+
+                outFile.close() ;
+
+                this->attachments->push_front( parsedAtt ) ;
+
+            }// FOR
+
+        }// IF
+        else
+        {
+            this->attachments = NULL ;
+        }// else
 
     }// Function parseBody
 
@@ -275,7 +291,7 @@ namespace mailbot {
 
         if ( !eml )
         {
-            std::cerr << "Erro ao abrir o arquivo de email " << fname << std::endl;
+            std::cerr << "Could not find the file: " << fname << std::endl;
             delete pInstance ;
             exit(EXIT_FAILURE);
         }// IF
@@ -308,11 +324,11 @@ namespace mailbot {
 
     void Mail::Print ( void )
     {
-        std::cout << "body: " ;
+        std::cout << "subject: " ;
 
-        if ( this->body != NULL )
+        if ( this->subject != NULL )
         {
-            std::cout << this->body->c_str() ;
+            std::cout << this->subject->c_str() ;
         }// IF
         else
         {
@@ -321,11 +337,64 @@ namespace mailbot {
 
         std::cout << std::endl ;
 
-        std::cout << "subject: " ;
+        std::cout << "attachments: " ;
 
-        if ( this->subject != NULL )
+        if ( this->attachments != NULL )
         {
-            std::cout << this->subject->c_str() ;
+            int i = 1 ;
+            for ( std::list<Attachment *>::iterator it = this->attachments->begin() ; it != this->attachments->end() ; it++, i++ )
+            {
+                std::cout
+                    << std::endl
+                    << "Attachment " << i << ":"
+                    << std::endl
+                    << "filename: " << *(*it)->getName()
+                    << std::endl
+                    << "path: " << *(*it)->getPath()
+                    << std::endl
+                    << "type: " << *(*it)->getType()
+                    << std::endl ;
+            }// FOR
+
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// else
+
+        std::cout << std::endl ;
+
+        std::cout << "date: " ;
+
+        if ( this->date != NULL )
+        {
+            std::cout << this->date->date() << " " << this->date->time_of_day() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// else
+
+        std::cout << std::endl ;
+
+        std::cout << "deliveredTo: " ;
+
+        if ( this->deliveredTo != NULL )
+        {
+            std::cout << this->deliveredTo->c_str() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// else
+
+        std::cout << std::endl ;
+
+        std::cout << "inReplyTo: " ;
+
+        if ( this->inReplyTo != NULL )
+        {
+            std::cout << this->inReplyTo->c_str() ;
         }// IF
         else
         {
@@ -352,6 +421,45 @@ namespace mailbot {
         if ( this->userAgent != NULL )
         {
             std::cout << this->userAgent->c_str() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// else
+
+        std::cout << std::endl ;
+
+        std::cout << "organization: " ;
+
+        if ( this->organization != NULL )
+        {
+            std::cout << this->organization->c_str() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// else
+
+        std::cout << std::endl ;
+
+        std::cout << "bcc: " ;
+
+        if ( this->bcc != NULL )
+        {
+            std::cout << this->bcc->c_str() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// else
+
+        std::cout << std::endl ;
+
+        std::cout << "body: " ;
+
+        if ( this->body != NULL )
+        {
+            std::cout << this->body->c_str() ;
         }// IF
         else
         {
