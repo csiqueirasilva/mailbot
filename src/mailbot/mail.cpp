@@ -1,5 +1,5 @@
 #include "mail.hpp"
-#include <ctime>
+#include <sys/time.h>
 #include <cstdio>
 #include <cstring>
 
@@ -257,13 +257,15 @@ namespace mailbot {
                 vmime::ref<const vmime::attachment> att = mp.getAttachmentAt(i) ;
                 char szBuffer[255] ;
                 char folBuffer[255] = DEFAULT_ATTACHMENT_FOLDER ;
-                sprintf(szBuffer, "%d%s",static_cast<int>(time(NULL)),att->getName().generate().c_str()) ;
+                timeval t ;
+                gettimeofday(&t,NULL) ;
+                sprintf(szBuffer,"%d%s",static_cast<int>(t.tv_usec),att->getName().generate().c_str()) ;
 
                 Attachment * parsedAtt = new Attachment(szBuffer, folBuffer , att->getType().generate().c_str() ) ;
 
                 std::ofstream outFile(strcat(folBuffer,szBuffer)) ;
 
-                vmime::utility::outputStreamAdapter adpFile(outFile) ;
+                vmime::utility::outputStreamAdapter adpFile(outFile ) ;
 
                 att->getData()->extract(adpFile) ;
                 adpFile.flush() ;

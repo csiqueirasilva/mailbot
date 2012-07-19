@@ -12,15 +12,16 @@ class Mail {
 private:
     static Mail * pInstance ;
     std::string * body ;
-    std::list<std::string *> * cc ;
-    std::string * to ;
+    std::list<Box *> * cc ;
+    Box * to ;
     std::string * messageId ;
     std::string * inReplyTo ;
     std::string * deliveredTo ;
     std::list<Attachment *> * attachments ;
     std::string * subject ;
     std::string * userAgent ;
-    std::string * bcc ;
+    Box * bcc ;
+    Box * from ;
     std::string * organization ;
     boost::posix_time::ptime * date ;
     void parseFromFile ( const char * fname ) ;
