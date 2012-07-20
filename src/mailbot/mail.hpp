@@ -1,4 +1,5 @@
 #include "attachment.hpp"
+#include "box.hpp"
 #include "base.hpp"
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <list>
@@ -13,15 +14,16 @@ private:
     static Mail * pInstance ;
     std::string * body ;
     std::list<Box *> * cc ;
-    Box * to ;
+    std::list<Box *> * to ;
     std::string * messageId ;
     std::string * inReplyTo ;
     std::string * deliveredTo ;
     std::list<Attachment *> * attachments ;
     std::string * subject ;
     std::string * userAgent ;
-    Box * bcc ;
+    std::list<Box *> * bcc ;
     Box * from ;
+    Box * sender ;
     std::string * organization ;
     boost::posix_time::ptime * date ;
     void parseFromFile ( const char * fname ) ;

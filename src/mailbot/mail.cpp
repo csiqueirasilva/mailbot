@@ -2,6 +2,7 @@
 #include <sys/time.h>
 #include <cstdio>
 #include <cstring>
+#include <vector>
 
 namespace mailbot {
 
@@ -15,15 +16,18 @@ namespace mailbot {
     Mail::~Mail ( void )
     {
 
-        if ( this->body )
-        {
-            delete this->body ;
-        }// IF
+        delete this->body ;
 
-//        if ( this->to )
-//        {
-//            delete this->to ;
-//        }// IF
+        if ( this->cc != NULL )
+        {
+            for ( std::list<Box *>::iterator it = this->cc->begin() ; it != this->cc->end() ; it++ )
+            {
+                delete *it ;
+            }// FOR
+
+            delete this->cc ;
+
+        }// IF
 
         if ( this->messageId )
         {
@@ -62,19 +66,41 @@ namespace mailbot {
             delete this->userAgent ;
         }// IF
 
-//        if ( this->bcc )
-//        {
-//            delete this->bcc ;
-//        }// IF
+        if ( this->bcc != NULL )
+        {
+            for ( std::list<Box *>::iterator it = this->bcc->begin() ; it != this->bcc->end() ; it++ )
+            {
+                delete *it ;
+            }// FOR
 
-//        if ( this->cc )
-//        {
-//            delete this->cc ;
-//        }// IF
+            delete this->bcc ;
+
+        }// IF
+
+        if ( this->to != NULL )
+        {
+            for ( std::list<Box *>::iterator it = this->to->begin() ; it != this->to->end() ; it++ )
+            {
+                delete *it ;
+            }// FOR
+
+            delete this->to ;
+
+        }// IF
 
         if ( this->organization )
         {
             delete this->organization ;
+        }// IF
+
+        if ( this->sender )
+        {
+            delete this->sender ;
+        }// IF
+
+        if ( this->from )
+        {
+            delete this->from ;
         }// IF
 
         if ( this->date )
@@ -109,9 +135,6 @@ namespace mailbot {
             );
         }// catch
 
-//    std::list<std::string *> * cc ;
-//    std::string * to ;
-
         // get userAgent
         try
         {
@@ -126,18 +149,89 @@ namespace mailbot {
             this->userAgent = new std::string(e);
         }// catch
 
-        // get Bcc
+        // get cc
         try
         {
-            throw hdr->Bcc()->getValue()->generate() ;
+            throw hdr->Cc()->getValue().dynamicCast<const vmime::addressList>()->toMailboxList() ;
+        }// try
+        catch ( vmime::exception e )
+        {
+            this->cc = NULL ;
+        }// catch
+        catch ( vmime::utility::ref<vmime::mailboxList> e )
+        {
+            this->cc = new std::list<Box *>() ;
+            for ( int i = 0 ; i < e->getMailboxCount() ; i++ )
+            {
+                this->cc->push_back(new Box(e->getMailboxAt(i)->getName().getWholeBuffer().c_str(), e->getMailboxAt(i)->getEmail().c_str()));
+            }// for
+
+        }// catch
+
+        // get to
+        try
+        {
+            throw hdr->To()->getValue().dynamicCast<const vmime::addressList>()->toMailboxList() ;
+        }// try
+        catch ( vmime::exception e )
+        {
+            this->to = NULL ;
+        }// catch
+        catch ( vmime::utility::ref<vmime::mailboxList> e )
+        {
+            this->to = new std::list<Box *>() ;
+            for ( int i = 0 ; i < e->getMailboxCount() ; i++ )
+            {
+                this->to->push_back(new Box(e->getMailboxAt(i)->getName().getWholeBuffer().c_str(), e->getMailboxAt(i)->getEmail().c_str()));
+            }// for
+
+        }// catch
+
+        // get bcc
+        try
+        {
+            throw hdr->Bcc()->getValue().dynamicCast<const vmime::addressList>()->toMailboxList() ;
         }// try
         catch ( vmime::exception e )
         {
             this->bcc = NULL ;
         }// catch
-        catch ( std::string e )
+        catch ( vmime::utility::ref<vmime::mailboxList> e )
         {
-            this->bcc = new std::string(e);
+            this->bcc = new std::list<Box *>() ;
+            for ( int i = 0 ; i < e->getMailboxCount() ; i++ )
+            {
+                this->bcc->push_back(new Box(e->getMailboxAt(i)->getName().getWholeBuffer().c_str(), e->getMailboxAt(i)->getEmail().c_str()));
+            }// for
+
+        }// catch
+
+        // get sender
+        try
+        {
+            throw hdr->Sender()->getValue().dynamicCast<const vmime::mailbox>() ;
+        }// try
+        catch ( vmime::exception e )
+        {
+            this->sender = NULL ;
+        }// catch
+        catch ( vmime::ref<const vmime::mailbox> e )
+        {
+            this->sender = new Box(e->getName().getWholeBuffer().c_str(), e->getEmail().c_str());
+        }// catch
+
+       // get from
+        try
+        {
+            throw hdr->From()->getValue().dynamicCast<const vmime::mailbox>() ;
+        }// try
+        catch ( vmime::exception e )
+        {
+            this->from = NULL ;
+        }// catch
+        catch ( vmime::ref<const vmime::mailbox> e )
+        {
+            this->from = new Box(e->getName().getWholeBuffer().c_str(), e->getEmail().c_str());
         }// catch
 
         // get organization
@@ -280,7 +374,7 @@ namespace mailbot {
         else
         {
             this->attachments = NULL ;
-        }// else
+        }// ELSE
 
     }// Function parseBody
 
@@ -335,7 +429,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -362,7 +456,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -375,7 +469,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -388,7 +482,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -401,7 +495,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -414,7 +508,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -427,7 +521,35 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "from: " ;
+
+        if ( this->from != NULL )
+        {
+            std::cout << *this->from->getName()
+            << " " << *this->from->getMail() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "sender: " ;
+
+        if ( this->sender != NULL )
+        {
+            std::cout << *this->sender->getName()
+            << " " << *this->sender->getMail() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -440,7 +562,55 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "To: " ;
+
+        if ( this->to != NULL )
+        {
+            int i = 1 ;
+            for ( std::list<Box *>::iterator it = this->to->begin() ; it != this->to->end() ; it++, i++ )
+            {
+                std::cout
+                    << std::endl
+                    << "To " << i << ":"
+                    << std::endl
+                    << "Name: " << *(*it)->getName()
+                    << std::endl
+                    << "Email: " << *(*it)->getMail()
+                    << std::endl ;
+            }// FOR
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "cc: " ;
+
+        if ( this->cc != NULL )
+        {
+            int i = 1 ;
+            for ( std::list<Box *>::iterator it = this->cc->begin() ; it != this->cc->end() ; it++, i++ )
+            {
+                std::cout
+                    << std::endl
+                    << "Cc " << i << ":"
+                    << std::endl
+                    << "Name: " << *(*it)->getName()
+                    << std::endl
+                    << "Email: " << *(*it)->getMail()
+                    << std::endl ;
+            }// FOR
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -448,12 +618,23 @@ namespace mailbot {
 
         if ( this->bcc != NULL )
         {
-            std::cout << this->bcc->c_str() ;
+            int i = 1 ;
+            for ( std::list<Box *>::iterator it = this->bcc->begin() ; it != this->bcc->end() ; it++, i++ )
+            {
+                std::cout
+                    << std::endl
+                    << "Bcc " << i << ":"
+                    << std::endl
+                    << "Name: " << *(*it)->getName()
+                    << std::endl
+                    << "Email: " << *(*it)->getMail()
+                    << std::endl ;
+            }// FOR
         }// IF
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 
@@ -466,7 +647,7 @@ namespace mailbot {
         else
         {
             std::cout << "NULL VALUE" ;
-        }// else
+        }// ELSE
 
         std::cout << std::endl ;
 

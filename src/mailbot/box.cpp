@@ -21,7 +21,7 @@ namespace mailbot {
 
     std::string * Box::getMail ( void )
     {
-        return this->email ;
+        return this->mail ;
     }// getMail
 
 }// MAILBOT
