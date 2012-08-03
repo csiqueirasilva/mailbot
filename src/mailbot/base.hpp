@@ -7,4 +7,10 @@
 #include <vmime/platforms/posix/posixHandler.hpp>
 #include <vmime/vmime.hpp>
 
+namespace mailbot {
+
+    std::ifstream * mainLog ;
+
+};
+
 #endif

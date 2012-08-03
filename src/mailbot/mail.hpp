@@ -8,10 +8,11 @@
 
 namespace mailbot {
 
-class Mail {
+class Parser::Mail {
 
 private:
-    static Mail * pInstance ;
+    static Parser::Mail * pInstance ;
+    std::ifstream log ;
     std::string * body ;
     std::list<Box *> * cc ;
     std::list<Box *> * to ;
@@ -29,14 +30,15 @@ private:
     void parseFromFile ( const char * fname ) ;
     void parseHeader ( vmime::ref<vmime::message> msg ) ;
     void parseBody ( vmime::ref<vmime::message> msg ) ;
-    Mail ( const char * fname ) ;
-    ~Mail ( void ) ;
+    int checkLog ( void ) ;
+    Parser::Mail ( const char * fname ) ;
+    ~Parser::Mail ( void ) ;
 public:
-    static Mail * New ( const char * fname )
+    static Parser::Mail * New ( const char * fname )
     {
         if ( pInstance == NULL )
         {
-            pInstance = new Mail ( fname ) ;
+            pInstance = new Parser::Mail ( fname ) ;
         }// IF
 
         return pInstance ;

@@ -1,20 +1,26 @@
 #include "mail.hpp"
 #include <sys/time.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <cerrno>
 #include <cstdio>
 #include <cstring>
 #include <vector>
 
 namespace mailbot {
 
-    Mail * Mail::pInstance = NULL ;
+    Parser::Mail * Parser::Mail::pInstance = NULL ;
 
-    Mail::Mail ( const char * fname )
+    Parser::Mail::Mail ( const char * fname )
     {
+        checkLog ( ) ;
         parseFromFile ( fname ) ;
     }// Class Constructor
 
-    Mail::~Mail ( void )
+    Parser::Mail::~Mail ( void )
     {
+
+        delete this->log ;
 
         delete this->body ;
 
@@ -377,6 +383,37 @@ namespace mailbot {
         }// ELSE
 
     }// Function parseBody
+
+    int Mail::checkLog ( void )
+    {
+/*        struct stat buf ;
+
+        if ( stat( "/var/log/mail-bot/mail_parse.log" , &buf ) != 0 ) //If file don`t exist
+        {
+            FILE * log = fopen( "/var/log/mail-bot/mail_parse.log" , "wt" ) ;
+            if ( !log )
+            {
+                mainLog << "Error creating mail log file: " << strerror ( errno ) << std::endl ;
+                return 0 ;
+            }// IF
+
+            fclose( log ) ;
+
+        }// IF
+
+        if ( !freopen ( "/var/log/mail-bot/mail_parse.log" , "at" , stderr ) )
+        {
+            mainLog << "Error setting mail log stream: " << strerror ( errno ) << std::endl ;
+            return 0 ;
+        }// IF
+
+*/
+
+        this->log = new ofstream( "/var/log/mail-bot/mail_parse.log" , std::ios::out ) ;
+
+        return 1 ;
+
+    }// Function checkLog
 
     void Mail::parseFromFile ( const char * fname )
     {
