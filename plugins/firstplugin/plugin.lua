@@ -1,3 +1,5 @@
+
+--[[
 function print_r ( tab )
 
 	if type(tab) == "table" then
@@ -29,3 +31,5 @@ for k,v in pairs ( mailbot ) do
 		print("There was no results for this")
 	end
 end
+
+]]--
