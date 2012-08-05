@@ -9,17 +9,18 @@
 
 namespace mailbot {
 
-    Parser::Mail * Parser::Mail::pInstance = NULL ;
+    extern std::ofstream * mainLog ;
 
-    Parser::Mail::Mail ( const char * fname )
+    Mail * Mail::pInstance = NULL ;
+
+    Mail::Mail ( const char * fname )
     {
         checkLog ( ) ;
         parseFromFile ( fname ) ;
     }// Class Constructor
 
-    Parser::Mail::~Mail ( void )
+    Mail::~Mail ( void )
     {
-
         delete this->log ;
 
         delete this->body ;
@@ -33,6 +34,33 @@ namespace mailbot {
 
             delete this->cc ;
 
+        }// IF
+
+        if ( this->references != NULL )
+        {
+            for ( std::list<std::string *>::iterator it = this->references->begin() ; it != this->references->end() ; it++ )
+            {
+                delete *it ;
+            }// FOR
+
+            delete this->references ;
+
+        }// IF
+
+        if ( this->inReplyTo != NULL )
+        {
+            for ( std::list<std::string *>::iterator it = this->inReplyTo->begin() ; it != this->inReplyTo->end() ; it++ )
+            {
+                delete *it ;
+            }// FOR
+
+            delete this->inReplyTo ;
+
+        }// IF
+
+        if ( this->originalMessageId )
+        {
+            delete this->originalMessageId ;
         }// IF
 
         if ( this->messageId )
@@ -52,9 +80,9 @@ namespace mailbot {
 
         }// IF
 
-        if ( this->inReplyTo )
+        if ( this->ReplyTo )
         {
-            delete this->inReplyTo ;
+            delete this->ReplyTo ;
         }// IF
 
         if ( this->deliveredTo )
@@ -193,6 +221,44 @@ namespace mailbot {
 
         }// catch
 
+        // get references
+        try
+        {
+            throw hdr->References()->getValue().dynamicCast<const vmime::messageIdSequence>()->getMessageIdList() ;
+        }// try
+        catch ( vmime::exception e )
+        {
+            this->references = NULL ;
+        }// catch
+        catch ( std::vector<vmime::utility::ref<vmime::messageId const> > e )
+        {
+            this->references = new std::list<std::string *>() ;
+            for ( unsigned int i = 0 ; i < e.size() ; i++ )
+            {
+                this->references->push_back(new std::string(e.at(i)->getId()));
+            }// for
+
+        }// catch
+
+        // get inReplyTo
+        try
+        {
+            throw hdr->InReplyTo()->getValue().dynamicCast<const vmime::messageIdSequence>()->getMessageIdList() ;
+        }// try
+        catch ( vmime::exception e )
+        {
+            this->inReplyTo = NULL ;
+        }// catch
+        catch ( std::vector<vmime::utility::ref<vmime::messageId const> > e )
+        {
+            this->inReplyTo = new std::list<std::string *>() ;
+            for ( unsigned int i = 0 ; i < e.size() ; i++ )
+            {
+                this->inReplyTo->push_back(new std::string(e.at(i)->getId()));
+            }// for
+
+        }// catch
+
         // get bcc
         try
         {
@@ -271,7 +337,7 @@ namespace mailbot {
         // get messageId
         try
         {
-            throw hdr->MessageId()->getValue()->generate() ;
+            throw hdr->MessageId()->getValue().dynamicCast<vmime::messageId const>()->getId() ;
         } // try
         catch ( vmime::exception e )
         {
@@ -280,6 +346,20 @@ namespace mailbot {
         catch ( std::string e )
         {
             this->messageId = new std::string(e) ;
+        }// catch
+
+        // get OriginalMessageId
+        try
+        {
+            throw hdr->OriginalMessageId()->getValue()->generate() ;
+        } // try
+        catch ( vmime::exception e )
+        {
+            this->originalMessageId = NULL ;
+        }// catch
+        catch ( std::string e )
+        {
+            this->originalMessageId = new std::string(e) ;
         }// catch
 
         // get deliveredTo
@@ -296,18 +376,18 @@ namespace mailbot {
             this->deliveredTo = new std::string(e) ;
         }// catch
 
-        // get inReplyTo
+        // get ReplyTo
         try
         {
-            throw hdr->InReplyTo()->getValue()->generate() ;
+            throw hdr->ReplyTo()->getValue()->generate() ;
         }// try
         catch ( vmime::exception e )
         {
-			this->inReplyTo = NULL ;
+			this->ReplyTo = NULL ;
         }// catch
         catch ( std::string e )
         {
-			this->inReplyTo = new std::string(e) ;
+			this->ReplyTo = new std::string(e) ;
         }// catch
 
     }// Function parseHeader
@@ -386,33 +466,9 @@ namespace mailbot {
 
     int Mail::checkLog ( void )
     {
-/*        struct stat buf ;
+        this->log = new std::ofstream( "/var/log/mail-bot/mail_parse.log" , std::ios::out | std::ios::app ) ;
 
-        if ( stat( "/var/log/mail-bot/mail_parse.log" , &buf ) != 0 ) //If file don`t exist
-        {
-            FILE * log = fopen( "/var/log/mail-bot/mail_parse.log" , "wt" ) ;
-            if ( !log )
-            {
-                mainLog << "Error creating mail log file: " << strerror ( errno ) << std::endl ;
-                return 0 ;
-            }// IF
-
-            fclose( log ) ;
-
-        }// IF
-
-        if ( !freopen ( "/var/log/mail-bot/mail_parse.log" , "at" , stderr ) )
-        {
-            mainLog << "Error setting mail log stream: " << strerror ( errno ) << std::endl ;
-            return 0 ;
-        }// IF
-
-*/
-
-        this->log = new ofstream( "/var/log/mail-bot/mail_parse.log" , std::ios::out ) ;
-
-        return 1 ;
-
+        return this->log ? 1 : 0 ;
     }// Function checkLog
 
     void Mail::parseFromFile ( const char * fname )
@@ -424,7 +480,7 @@ namespace mailbot {
 
         if ( !eml )
         {
-            std::cerr << "Could not find the file: " << fname << std::endl;
+            *this->log << "Could not find the file: " << fname << std::endl;
             delete pInstance ;
             exit(EXIT_FAILURE);
         }// IF
@@ -523,11 +579,11 @@ namespace mailbot {
 
         std::cout << std::endl ;
 
-        std::cout << "inReplyTo: " ;
+        std::cout << "ReplyTo: " ;
 
-        if ( this->inReplyTo != NULL )
+        if ( this->ReplyTo != NULL )
         {
-            std::cout << this->inReplyTo->c_str() ;
+            std::cout << this->ReplyTo->c_str() ;
         }// IF
         else
         {
@@ -541,6 +597,63 @@ namespace mailbot {
         if ( this->messageId != NULL )
         {
             std::cout << this->messageId->c_str() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "original-message-id: " ;
+
+        if ( this->originalMessageId != NULL )
+        {
+            std::cout << this->originalMessageId->c_str() ;
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "references: " ;
+
+        if ( this->references != NULL )
+        {
+            int i = 1 ;
+            for ( std::list<std::string *>::iterator it = this->references->begin() ; it != this->references->end() ; it++, i++ )
+            {
+                std::cout
+                    << std::endl
+                    << "reference " << i << ":"
+                    << std::endl
+                    << "ID: " << *(*it)
+                    << std::endl ;
+            }// FOR
+        }// IF
+        else
+        {
+            std::cout << "NULL VALUE" ;
+        }// ELSE
+
+        std::cout << std::endl ;
+
+        std::cout << "in-reply-to: " ;
+
+        if ( this->inReplyTo != NULL )
+        {
+            int i = 1 ;
+            for ( std::list<std::string *>::iterator it = this->inReplyTo->begin() ; it != this->inReplyTo->end() ; it++, i++ )
+            {
+                std::cout
+                    << std::endl
+                    << "in-reply-to " << i << ":"
+                    << std::endl
+                    << "ID: " << *(*it)
+                    << std::endl ;
+            }// FOR
         }// IF
         else
         {
@@ -689,5 +802,90 @@ namespace mailbot {
         std::cout << std::endl ;
 
     }// Function Print
+
+    std::string * Mail::getBody ( void )
+    {
+        return this->body ;
+    }//Function getBody
+
+    std::list<Box *> * Mail::getCc ( void )
+    {
+        return this->cc ;
+    }//Function getCc
+
+    std::list<Box *> * Mail::getTo ( void )
+    {
+        return this->to ;
+    }//Function getTo
+
+    std::string * Mail::getMessageId ( void )
+    {
+        return this->messageId ;
+    }//Function getMessageId
+
+    std::string * Mail::getOriginalMessageId ( void )
+    {
+        return this->originalMessageId ;
+    }//Function getOriginalMessageId
+
+    std::string * Mail::getReplyTo ( void )
+    {
+        return this->ReplyTo ;
+    }//Function replyTo
+
+    std::list<std::string *> * Mail::getInReplyTo ( void )
+    {
+        return this->inReplyTo ;
+    }//Function inReplyTo
+
+    std::list<std::string *> * Mail::getReferences ( void )
+    {
+        return this->references ;
+    }//Function getReferences
+
+    std::string * Mail::getDeliveredTo ( void )
+    {
+        return this->deliveredTo ;
+    }//Function getDeliveredTo
+
+    std::list<Attachment *> * Mail::getAttachments ( void )
+    {
+        return this->attachments ;
+    }//Function getAttachments
+
+    std::string * Mail::getSubject ( void )
+    {
+        return this->subject ;
+    }//Function getSubject
+
+    std::string * Mail::getUserAgent ( void )
+    {
+        return this->userAgent ;
+    }//Function getUserAgent
+
+    std::list<Box *> * Mail::getBcc ( void )
+    {
+        return this->bcc ;
+    }//Function getBcc
+
+    Box * Mail::getFrom ( void )
+    {
+        return this->from ;
+    }//Function getFrom
+
+    Box * Mail::getSender ( void )
+    {
+        return this->sender ;
+    }//Function getSender
+
+    std::string * Mail::getOrganization ( void )
+    {
+        return this->organization ;
+    }//Function getOrganization
+
+    boost::posix_time::ptime * Mail::getDate ( void )
+    {
+        return this->date ;
+    }//Function getDate
 
 }// MAILBOT

@@ -1,6 +1,6 @@
 #ifndef MAILBOT
 #define MAILBOT
 
-#include "mailbot/mail.hpp"
+#include "mailbot/parser.hpp"
 
 #endif

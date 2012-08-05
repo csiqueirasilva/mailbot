@@ -1,3 +1,6 @@
+#ifndef MAILBOT_MAIL
+#define MAILBOT_MAIL
+
 #include "attachment.hpp"
 #include "box.hpp"
 #include "base.hpp"
@@ -8,16 +11,19 @@
 
 namespace mailbot {
 
-class Parser::Mail {
+class Mail {
 
 private:
-    static Parser::Mail * pInstance ;
-    std::ifstream log ;
+    static Mail * pInstance ;
+    std::ofstream * log ;
     std::string * body ;
     std::list<Box *> * cc ;
     std::list<Box *> * to ;
     std::string * messageId ;
-    std::string * inReplyTo ;
+    std::string * originalMessageId ;
+    std::string * ReplyTo ;
+    std::list<std::string *> * inReplyTo ;
+    std::list<std::string *> * references ;
     std::string * deliveredTo ;
     std::list<Attachment *> * attachments ;
     std::string * subject ;
@@ -31,14 +37,34 @@ private:
     void parseHeader ( vmime::ref<vmime::message> msg ) ;
     void parseBody ( vmime::ref<vmime::message> msg ) ;
     int checkLog ( void ) ;
-    Parser::Mail ( const char * fname ) ;
-    ~Parser::Mail ( void ) ;
+    Mail ( const char * fname ) ;
+    ~Mail ( void ) ;
 public:
-    static Parser::Mail * New ( const char * fname )
+
+    /* GET */
+    std::string * getBody ( void ) ;
+    std::list<Box *> * getCc ( void ) ;
+    std::list<Box *> * getTo ( void ) ;
+    std::string * getMessageId ( void ) ;
+    std::string * getOriginalMessageId ( void ) ;
+    std::string * getReplyTo ( void ) ;
+    std::list<std::string *> * getInReplyTo ( void ) ;
+    std::list<std::string *> * getReferences ( void ) ;
+    std::string * getDeliveredTo ( void ) ;
+    std::list<Attachment *> * getAttachments ( void ) ;
+    std::string * getSubject ( void ) ;
+    std::string * getUserAgent ( void ) ;
+    std::list<Box *> * getBcc ( void ) ;
+    Box * getFrom ( void ) ;
+    Box * getSender ( void ) ;
+    std::string * getOrganization ( void ) ;
+    boost::posix_time::ptime * getDate ( void ) ;
+
+    static Mail * New ( const char * fname )
     {
         if ( pInstance == NULL )
         {
-            pInstance = new Parser::Mail ( fname ) ;
+            pInstance = new Mail ( fname ) ;
         }// IF
 
         return pInstance ;
@@ -56,7 +82,8 @@ public:
     };// Singleton Destructor
 
     void Print ( void ) ;
+};
 
 };
 
-}
+#endif

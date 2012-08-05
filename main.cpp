@@ -3,11 +3,11 @@
 int main (int argc, char ** argv)
 {
 
-    mailbot::Mail * mail = mailbot::Mail::New(argc > 1 ? static_cast<const char *>(argv[1]) : "/var/dev/mail-bot/samples/1.eml") ;
+    mailbot::Parser * parser = mailbot::Parser::New( argc > 1 ? static_cast<const char *>(argv[1]) : "/var/dev/mail-bot/samples/1.eml" ) ;
 
-    mail->Print();
+    parser->runPlugins() ;
 
-    mail->Delete();
+    parser->Delete() ;
 
     return 1 ;
 }

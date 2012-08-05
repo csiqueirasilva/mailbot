@@ -1,0 +1,150 @@
+Delivered-To: csiqueirasilva@gmail.com
+Received: by 10.76.84.166 with SMTP id a6csp382292oaz;
+        Sat, 4 Aug 2012 07:35:07 -0700 (PDT)
+Return-Path: <pedrolyral@gmail.com>
+Received-SPF: pass (google.com: domain of pedrolyral@gmail.com designates 10.224.71.73 as permitted sender) client-ip=10.224.71.73
+Authentication-Results: mr.google.com; spf=pass (google.com: domain of pedrolyral@gmail.com designates 10.224.71.73 as permitted sender) smtp.mail=pedrolyral@gmail.com; dkim=pass header.i=pedrolyral@gmail.com
+Received: from mr.google.com ([10.224.71.73])
+        by 10.224.71.73 with SMTP id g9mr9485708qaj.12.1344090905342 (num_hops = 1);
+        Sat, 04 Aug 2012 07:35:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :cc:content-type;
+        bh=x3kana+d34lEE8Z4dMcixMVUfe8HBHtuJZdn8FqGhvU=;
+        b=usPReXDVADgX0n82ByuxVPH9V2t1apcypxSKP6Ir5wy3RsCOYFaDPcZ2rsdo8ewppI
+         tjn9NHiig6FD3lT3dZmXNMsR4eGGeQ1SnlTk1LDVQvbo2fVUcYVKRlhSn3ELF6uAWxT2
+         FNglVV2B8MxFf2Mk5xEexewnjtzaQwmpgARxPu1W+OKR8hp3YkI7hfPp5sS8wN8TiJvR
+         e4vyxyA+uMBPzBMgK3CXiFIQ/AAW2QfDkG8NxuwI2DGYT1mrDPJNB+NywKejlm705tR+
+         jq0Zs/ez3xpakkCVCugn3Zxl90bbUSDrsW/O8Y2bpPyLHVHIB7aMg9g0PC8qzHU6bO8g
+         7bVQ==
+MIME-Version: 1.0
+Received: by 10.224.71.73 with SMTP id g9mr8483119qaj.12.1344090905317; Sat,
+ 04 Aug 2012 07:35:05 -0700 (PDT)
+Received: by 10.229.51.141 with HTTP; Sat, 4 Aug 2012 07:35:05 -0700 (PDT)
+In-Reply-To: <CAB=U5GUU2YoqYAahGdaGWDaq3XHgdORGEtoCM7koXWy5AmYvmA@mail.gmail.com>
+References: <CAEH9n=r3AVFMB0TncF9MPrRsqry6VqXHzBysxZHXkJKk-6+4nQ@mail.gmail.com>
+	<CANxN3py=Wcr5O8OR8Tdm5WNFpJaJEg9KVuk4bHJrb+TMXvNTGw@mail.gmail.com>
+	<CAH__eKNQV7_BFkiKREZAB-1yom7HrF2_yS-AWr=V58wjDQ3u8g@mail.gmail.com>
+	<CAH__eKPJZXUjtNA0KRO4rbQ1++KWo7x74N2C3PdDHFK7CMDqWw@mail.gmail.com>
+	<CADRrem+VZOgMT4tzY5tOsJvbhfj1ku_8fD9xs4F4fDCAxNh2dw@mail.gmail.com>
+	<CAH__eKNsJqnr2PZK9EcHZwehH+xJ_CRFoFaJpE4UVgi0O5ywJQ@mail.gmail.com>
+	<CANPW6d7M8VBV96uK2m-GROt5PbYSBv9sa2+xPoDBjqBauP6+Lw@mail.gmail.com>
+	<CAH__eKNuHuDYLyuiLYP01LUWPgtP0yGvjC1YUvjdHyGh-Hs+jA@mail.gmail.com>
+	<CAOKZ0SosZyo=T-_ZTzuWtOfL4qstsD3pgaR-kwPVrEB2V-Zj7A@mail.gmail.com>
+	<CAH__eKMfO+M4Oux5gnG+Smih+Vx9Gfzy8s7P6k_2rv2M1oXmvg@mail.gmail.com>
+	<CANxN3pw6v7Amo1XQBjNjMiiQZmboK_HUX-cctRYRc2APPXfdFw@mail.gmail.com>
+	<CAH__eKNYiT=kjBAQNY5BzT8bamqrph0X6nigicB1o2uTb=0CmA@mail.gmail.com>
+	<CADRremKD9atYmitoE2OwikMuCij_zUVNafjNwDmy4amUCtomwg@mail.gmail.com>
+	<CAH__eKNVca2N+UhWabaECrbYndOudsU2G7syK2Gc=RnBp36bpg@mail.gmail.com>
+	<CAEXPp9bDLNGe_Uk2og56qceRMN6tu3_q=+O7OS0NVAdamKJf+w@mail.gmail.com>
+	<CAH__eKPWCFKLHm00kuE=M1dpFRetpyRKbHDJpj5YFgYMfRkVkw@mail.gmail.com>
+	<CAEXPp9ZTV2g6Rs36YjXm8opRD9odgJm_0iZA3KBv87rCS+bh_w@mail.gmail.com>
+	<CAH__eKOyPfm5hnKpqwLyFGhqO-paT_NrDdC8cVrmxQwbdzMBxA@mail.gmail.com>
+	<CAEH9n=oY9qGZsaqEbAbx-PXHRHTBFFdUH80ariBW625XjRTPkw@mail.gmail.com>
+	<CANcjJrNKvSvAfTnFfdUWGAopQzqwHnGNZBjMbYBAwkiOMBQQ-g@mail.gmail.com>
+	<E4CD77C3-2A22-42C5-92C2-84CDF777B3E0@gmail.com>
+	<CADRremL=Z80J=gyp21uz=c-MhSm9NOJqAdboAxUDw93GY5G=uA@mail.gmail.com>
+	<CAOKZ0SpWc8W_eP+uthcBwr14O27bx4_cpnfts_QO5SCxxyrKpQ@mail.gmail.com>
+	<CANPW6d7oZz+nN=5U==Gr4mOzipcGbfgAzzfBRLeJstNqbOQS4g@mail.gmail.com>
+	<CAG5b5Ua_b0146F6y1zJ-0cWP5jnJ59yk=Bgqgonepu_oEiparw@mail.gmail.com>
+	<CANPW6d7hsR6_Wt2Po3_Qz7K6eCm8h2QgRm+hcNCM5WXd710R_Q@mail.gmail.com>
+	<CAG5b5UYwJx+VOZzvg5X8b2R=r+3LaDVi2HLsX97D58nGCMxe3Q@mail.gmail.com>
+	<8555883D-EA3F-432D-9DE4-F88522EE2A7C@globo.com>
+	<CAG5b5UbP=YSSdkO7fp5TUP0Rm0am7oa3FWq62G2EzR0OyEKXvg@mail.gmail.com>
+	<CANPW6d76giDqMD2rrW1SL4y+u_MTchEmgD6uEucHeXdmpBY+Lg@mail.gmail.com>
+	<CANPW6d4Ctq+NLC_HwkEb6e+qj7S6SMq+LW80aa5FwR2LzvdkQg@mail.gmail.com>
+	<CANPW6d4=DVB0f1zm6AuroToAD_4OKXvZeke5=gRG=iX3+Oeuvg@mail.gmail.com>
+	<CAG5b5UbjJU598Za8ynwCYDqqc3fUQvWyRxpu3OOaYY9bRTtj7w@mail.gmail.com>
+	<CAG5b5UYf=e0VbEeGbG6ovPvW5e5J_Jcn3qJ0mMV2c-5Q_vmw-g@mail.gmail.com>
+	<CAG5b5Ubgcmg6Pspsi-0SYAy619i7ibnwCysUP4MSomnJhm-5Hg@mail.gmail.com>
+	<CANPW6d7RGGR-oY2+rLCVsQzPeSxehM9_fFKPC9=tM0Tm4tPP8w@mail.gmail.com>
+	<CAG5b5UY5Mv-UcqsdYxrk_ex_O0bCFRH-wdwy9TUtJYv0dXhjUQ@mail.gmail.com>
+	<CAEXPp9Y-Vya8JFyixU_JRi67x8sDw6gdeWtU84N7Z8kGjNzX_g@mail.gmail.com>
+	<CAG5b5UYtqGARrcHwAzF2nMr2XeEQ9GdFXoNFs0ZAmmkZktCqqg@mail.gmail.com>
+	<CAEXPp9ajFp93PiBnQreV7n_iKyk3ws_goU0CrYTD+9cTS4vShw@mail.gmail.com>
+	<CAG5b5UYbpSC+rbP-ktwG4GH4cWmU6F_Kc_tzgQzJGeW4jOT=0Q@mail.gmail.com>
+	<CAG5b5UYkUWU2KaRKYaRyANQRUNsB4WUcE2NRMt16_dZ0Q7bLMA@mail.gmail.com>
+	<CAEXPp9a9=BviS6QdJLzR4gRYwDrRzMz+25DQfA-H9uoWd2jE8Q@mail.gmail.com>
+	<34CF6863-F89E-4B16-9DBB-BCDC219B22A4@globo.com>
+	<CAH__eKOk2CrkxOYcB3VvLRtP-sp=DH0QErxeEqEK1shMd1-mSw@mail.gmail.com>
+	<CAB=U5GUdmeV7droCUy7apuBQ4Zxk3WNNqz5U-n0PGDsUASv=eg@mail.gmail.com>
+	<CAB=U5GVfSjwibp0NBrkGsoCX1x+e3djbF8Jc1EKkoGNJuDVa2g@mail.gmail.com>
+	<CAEXPp9ZHh8hESMaLfAi5J8cMHFJsjPHwt_u7agdJRW29y1de=Q@mail.gmail.com>
+	<CAG5b5UY6p4rqWFOBjVjTyn_3jbvme_ZQNttMGBvR_X7u9kB+Ag@mail.gmail.com>
+	<CAEXPp9Yp1xmmfVFs9i=_t1T-hDvm0-PLU24W12uu8tdEA0BmGw@mail.gmail.com>
+	<CANPW6d5z48Dp6ZXj-fTo3+Fv+MyL6kR2bvbuU3K8GC9uUBvz-w@mail.gmail.com>
+	<CANxN3pzp5uwWO85w6S2B4ryqLaizYfBKgFd05es2pVhwAtm-_g@mail.gmail.com>
+	<9214734283010875416@unknownmsgid>
+	<CAEXPp9byU0h7Z-UjYvfPjDY5_LL07xQfd_d9jw-9QKSz1AyUYQ@mail.gmail.com>
+	<1067607394127895995@unknownmsgid>
+	<CAG5b5UaR31xiy9t=hvmby7q6BPbcWog=oMavqC0ateajdNvL-g@mail.gmail.com>
+	<CANPW6d5Y1ksT589BLx-VD6Of3kbWByGCq6+EdhfCaU7W5kT-tQ@mail.gmail.com>
+	<-2340474390796676397@unknownmsgid>
+	<CANPW6d4WQmeUR6QhU6REHsehZdvjoqJVv1WWN96tCY9xsJ02Ug@mail.gmail.com>
+	<CANxN3pyTpL9d9abi17D6goefhatz2VHdDShqd=X_4mrcNwN7bA@mail.gmail.com>
+	<CANPW6d6qqx7Jf4ZDLg+MDJ+HXHrd3CYtYFc8xLE8b-1W3ysXTA@mail.gmail.com>
+	<CAG5b5UYxUR2fsn8Rbdax8C-j955YMpWAbmK1HArhfPAtBQ3qCg@mail.gmail.com>
+	<CANxN3pwor+kNxRbX-o-DyVj8nOmHegT0pxcCASQXa7uBqoZ-tg@mail.gmail.com>
+	<CANcjJrP6h9KCqi7NesCodQ=105tKNKxx-gfdCGucPSZSO3TX9g@mail.gmail.com>
+	<CAH__eKMXtes8ECdMp+qP4zFzVhiWXT3ifDaDfW1PXW8oJsnSZQ@mail.gmail.com>
+	<CANxN3pwDJ-RN6TsNu4q-_WGnjm3K_=MuBDLr6BA_0=Gz774Few@mail.gmail.com>
+	<CANcjJrMhbkk1q+d2F_vPUDv_QLNzWiHGtZPoAftGbcyLTX6ieQ@mail.gmail.com>
+	<CANcjJrNsR28PgzEQPm1npJpDxeDckFgjd-4_aR-ez-R4BAcQwg@mail.gmail.com>
+	<CANxN3pztkniUsY=096JbL=+t5X4=hJV8NwRi0dhwA=tNPnda4A@mail.gmail.com>
+	<CANcjJrMtsmsQMe_y9rCA3kCHSzm4ruD7MWdBqsLHr62P-_NYKA@mail.gmail.com>
+	<CANxN3pzGWmXbEzQtABpZYJ5VkwgT4oAmdAD-+HkDXgJHDoWjXg@mail.gmail.com>
+	<CANcjJrMZo2dh9Jyfd=4LLB5uAdMFAu7fkCSwz_3ds=GLE7ujCg@mail.gmail.com>
+	<CANcjJrM-KmAX6=BZedNTs8VKqfszsDg7pVoYy7K28-LTNXo1pg@mail.gmail.com>
+	<CAEXPp9bX__Xj8zzDSq_ztXRJOiNWKN-w-vzfqc__e4tqhoSQNQ@mail.gmail.com>
+	<CANcjJrPJkgcvjUShxfYDdFbwo2G46rk7Anhc3cDaPHaS7dqaVA@mail.gmail.com>
+	<CAEXPp9b-m2sLAzkWinGfNwtnaeDGRwCNrywtBR7EGsZ556jq3w@mail.gmail.com>
+	<CANcjJrPQx0O6hXovV4DOfhOjzSC9q8R+4VNBjNF9fCvyYEwhJw@mail.gmail.com>
+	<CANxN3pz34ACg+QxEBzvVYxDQcx0e=5YZMEi4uuD1Wcx2gZxPvQ@mail.gmail.com>
+	<CANcjJrM=SbJLhvkZQ7U7VT7zQVuQAfdLdiKoTfMk2yjDS0a93Q@mail.gmail.com>
+	<CANcjJrOxO_rtHCkfDkBdGVGvmv50Nom8nZn5NksX-QxTwSX1_A@mail.gmail.com>
+	<CANcjJrP2gwoPrnX31Uw+KX1oqvbr5BNESwH6CFiaHV4v69wDdw@mail.gmail.com>
+	<CANcjJrO5w_583diUuiFgv0wt34XzV8ufDK-13kQYUxHz1wa8Jw@mail.gmail.com>
+	<CANcjJrNA+pHuERNkDxZR4HM6+DhCbPVnV5BvqjviAGuFKsxQ_g@mail.gmail.com>
+	<CAEXPp9b46HBXU3ov+hOf4kvyqKsBRd7=6j2Haeq2B=qtb-f72A@mail.gmail.com>
+	<CANxN3px12L-aa+6Vezsb4Di7P6dpTopE5RaqETzd6L9v77yF+w@mail.gmail.com>
+	<CANcjJrOJ1ZT8LWA48Mj5e88QSRWc2ON3-Ch=puQ0Mih5WfgZLQ@mail.gmail.com>
+	<CANcjJrOe2AQBT1p=C8fCFRDJLXSK2B9FWtiNNJ8utxFtkOGfQQ@mail.gmail.com>
+	<CANxN3pxabe0ZPESUhra0HEOhDsc74DkaRfucreGfPYDtHnjXoA@mail.gmail.com>
+	<CANcjJrPRDHqBhDEP8RDpVJwGi80sBwV_sW1xim5gJe_O5s29Jg@mail.gmail.com>
+	<CANcjJrMdew=11K8aAaadvLPddYsBhNCw5chb9qH54=BhKpe-1g@mail.gmail.com>
+	<CAEXPp9any_xCwHeZz3mGNO_cMBZywwpaUWw0NojCs8LcXQGMdg@mail.gmail.com>
+	<CANxN3pw0iAt-Lz-BMYtJvLkk09JTzGGXOst2UYciZC60eiju-Q@mail.gmail.com>
+	<CAEXPp9bVgor+vzCZqvheVpqzYj21yiBYAypoeiP2J7j4Ppay3Q@mail.gmail.com>
+	<CAL1JS3vFOoTv5PN4zpHF5n8v2+zry=p9d=+sUY-BSKOjHmb=uA@mail.gmail.com>
+	<CAG5b5Ub2qNr_rUKAAk4-RFqmS8w4G0-V8ex+Luo3aPp05=Bbuw@mail.gmail.com>
+	<CAOKZ0Sq9ewX02d5LxF4HFoeB285T8-91Fn7XgH3mXzEwiiivhA@mail.gmail.com>
+	<CANPW6d4dvQ7LVjOzZ6YSapVpAfZfk5akDMRYyYs5-b3PBW7JCw@mail.gmail.com>
+	<CAG5b5UZF-Ai8wJcHPXeSNhXM-tooNLxS9EicYYjF64f6mn8nVg@mail.gmail.com>
+	<53430146-4F2D-4344-94EF-7B7C565EC48E@gmail.com>
+	<CAB=U5GUU2YoqYAahGdaGWDaq3XHgdORGEtoCM7koXWy5AmYvmA@mail.gmail.com>
+Date: Sat, 4 Aug 2012 11:35:05 -0300
+Message-ID: <CANPW6d7pOiLZHaqGLLMz5BZWWHJUe6ymT1RzufAJJtF+9ck0FA@mail.gmail.com>
+Subject: =?ISO-8859-1?Q?Re=3A_Uld_10_14=2F05=2F2009_5=AAf?=
+From: Pedro Lyra <pedrolyral@gmail.com>
+To: Leonardo Noguchi <leo.noguchi@gmail.com>
+Cc: Marco Gelli Marchese <mvmcgm@gmail.com>, Caio Silva <csiqueirasilva@gmail.com>, 
+	Mario Henrique Braga D Almeida <mariohenrique@id.uff.br>, Renato Gallart <renacto@gmail.com>, 
+	Lucas Azevedo <lucasazevedo@gmail.com>, "Rafael F. C. Brazil Barboza" <rbrazil@globo.com>, 
+	Carlos Alexandre <carlos.alex@gmail.com>, =?ISO-8859-1?Q?leonardo_Mendon=E7a?= <leonardo.nvm@gmail.com>, 
+	ThiagoFalsetta <falsetta@gmail.com>, Thiago Silveira <thithigogo@gmail.com>, 
+	Diego Faria <diegorgfaria@gmail.com>
+Content-Type: multipart/alternative; boundary=bcaec51ba2c5f5124a04c6718c22
+
+--bcaec51ba2c5f5124a04c6718c22
+Content-Type: text/plain; charset=ISO-8859-1
+
+marcao ta INDIGNADO pq eu nao vou farmar leather pra ele
+
+--bcaec51ba2c5f5124a04c6718c22
+Content-Type: text/html; charset=ISO-8859-1
+
+marcao ta INDIGNADO pq eu nao vou farmar leather pra ele
+
+--bcaec51ba2c5f5124a04c6718c22--
+
