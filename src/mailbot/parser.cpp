@@ -176,9 +176,22 @@ extern "C" {
 
     int Parser::lua_getBody ( lua_State * L )
     {
-        lua_pushstring( L , mail->getBody()->c_str() ) ;
-        return 1 ;
+        return lua_pushEmptyString( L , mail->getBody() ) ;
     }// End of lua_getBody
+
+    int Parser::lua_pushEmptyString ( lua_State * L , std::string * str )
+    {
+        if ( str->size() != 0 )
+        {
+            lua_pushstring( L , str->c_str() ) ;
+        }//IF
+        else
+        {
+            lua_pushnil( L ) ;
+        }//ELSE
+
+        return 1 ;
+    }//End of lua_pushEmptyString
 
     int Parser::lua_getCc ( lua_State * L )
     {
@@ -189,46 +202,56 @@ extern "C" {
 
     int Parser::lua_pushListOfBoxes ( lua_State * L , std::list<Box *> * lst )
     {
-        if ( !lst ) return 0 ;
-
-        int i = 1 ;
-        lua_newtable( L ) ;
-
-        for( std::list<Box *>::iterator it = lst->begin() ; it != lst->end() ; it++ , i++ )
+        if ( !lst )
         {
-            lua_pushnumber( L , i ) ;
+            lua_pushnil( L ) ;
+        }//IF
+        else
+        {
+            int i = 1 ;
             lua_newtable( L ) ;
 
-            lua_pushstring( L , "name" ) ;
-            lua_pushstring( L , (*it)->getName()->c_str() ) ;
-            lua_rawset( L , -3 ) ;
+            for( std::list<Box *>::iterator it = lst->begin() ; it != lst->end() ; it++ , i++ )
+            {
+                lua_pushnumber( L , i ) ;
+                lua_newtable( L ) ;
 
-            lua_pushstring( L , "mail" ) ;
-            lua_pushstring( L , (*it)->getMail()->c_str() ) ;
-            lua_rawset( L , -3 ) ;
+                lua_pushstring( L , "name" ) ;
+                lua_pushstring( L , (*it)->getName()->c_str() ) ;
+                lua_rawset( L , -3 ) ;
 
-            lua_rawset( L , -3 ) ;
+                lua_pushstring( L , "mail" ) ;
+                lua_pushstring( L , (*it)->getMail()->c_str() ) ;
+                lua_rawset( L , -3 ) ;
 
-        }// FOR
+                lua_rawset( L , -3 ) ;
+
+            }// FOR
+        }//ELSE
 
         return 1 ;
     }// End of lua_pushListOfBoxes
 
     int Parser::lua_pushListOfStrings ( lua_State * L , std::list<std::string *> * lst )
     {
-        if ( !lst ) return 0 ;
-
-        int i = 1 ;
-        lua_newtable( L ) ;
-
-        for( std::list<std::string *>::iterator it = lst->begin() ; it != lst->end() ; it++ , i++ )
+        if ( !lst )
         {
+            lua_pushnil( L ) ;
+        }//IF
+        else
+        {
+            int i = 1 ;
+            lua_newtable( L ) ;
 
-            lua_pushnumber( L , i ) ;
-            lua_pushstring( L , (*it)->c_str() ) ;
-            lua_rawset( L , -3 ) ;
+            for( std::list<std::string *>::iterator it = lst->begin() ; it != lst->end() ; it++ , i++ )
+            {
 
-        }// FOR
+                lua_pushnumber( L , i ) ;
+                lua_pushstring( L , (*it)->c_str() ) ;
+                lua_rawset( L , -3 ) ;
+
+            }// FOR
+        }//ELSE
 
         return 1 ;
     }// End of lua_pushListOfStrings
@@ -238,10 +261,13 @@ extern "C" {
         if ( str )
         {
             lua_pushstring( L , str->c_str() ) ;
-            return 1 ;
         }// IF
+        else
+        {
+            lua_pushnil( L ) ;
+        }//ELSE
 
-        return 0 ;
+        return 1 ;
     }// End of lua_pushStlString
 
     int Parser::lua_getTo ( lua_State * L )
@@ -281,32 +307,38 @@ extern "C" {
 
     int Parser::lua_getAttachments ( lua_State * L )
     {
-        if ( !mail->getAttachments() ) return 0 ;
-
-        int i = 1 ;
-        lua_newtable( L ) ;
-
-        for( std::list<Attachment *>::iterator it = mail->getAttachments()->begin() ; it != mail->getAttachments()->end() ; it++ , i++ )
+        if ( !mail->getAttachments() )
+        {
+            lua_pushnil ( L ) ;
+        }//IF
+        else
         {
 
-            lua_pushnumber( L , i ) ;
+            int i = 1 ;
             lua_newtable( L ) ;
 
-            lua_pushstring( L , "name" ) ;
-            lua_pushstring( L , (*it)->getName()->c_str() ) ;
-            lua_rawset( L , -3 ) ;
+            for( std::list<Attachment *>::iterator it = mail->getAttachments()->begin() ; it != mail->getAttachments()->end() ; it++ , i++ )
+            {
 
-            lua_pushstring( L , "path" ) ;
-            lua_pushstring( L , (*it)->getPath()->c_str() ) ;
-            lua_rawset( L , -3 ) ;
+                lua_pushnumber( L , i ) ;
+                lua_newtable( L ) ;
 
-            lua_pushstring( L , "type" ) ;
-            lua_pushstring( L , (*it)->getType()->c_str() ) ;
-            lua_rawset( L , -3 ) ;
+                lua_pushstring( L , "name" ) ;
+                lua_pushstring( L , (*it)->getName()->c_str() ) ;
+                lua_rawset( L , -3 ) ;
 
-            lua_rawset( L , -3 ) ;
+                lua_pushstring( L , "path" ) ;
+                lua_pushstring( L , (*it)->getPath()->c_str() ) ;
+                lua_rawset( L , -3 ) ;
 
-        }// FOR
+                lua_pushstring( L , "type" ) ;
+                lua_pushstring( L , (*it)->getType()->c_str() ) ;
+                lua_rawset( L , -3 ) ;
+
+                lua_rawset( L , -3 ) ;
+
+            }// FOR
+        }//ELSE
 
         return 1 ;
     }// End of lua_getAttachments
@@ -325,16 +357,18 @@ extern "C" {
             lua_pushstring( L , box->getMail()->c_str() ) ;
             lua_rawset( L , -3 ) ;
 
-            return 1 ;
-
         }// IF
+        else
+        {
+            lua_pushnil( L ) ;
+        }//ELSE
 
-        return 0 ;
+        return 1 ;
     }// End of lua_getAttachments
 
     int Parser::lua_getSubject ( lua_State * L )
     {
-        return lua_pushStlString ( L , mail->getSubject() ) ;
+        return lua_pushEmptyString ( L , mail->getSubject() ) ;
     }// End of lua_getSubject
 
     int Parser::lua_getUserAgent ( lua_State * L )
@@ -389,11 +423,13 @@ extern "C" {
             lua_pushstring( L , str.c_str() ) ;
             lua_rawset( L , -3 ) ;
 
-            return 1 ;
-
         }// IF
+        else
+        {
+            lua_pushnil ( L ) ;
+        }//ELSE
 
-        return 0 ;
+        return 1 ;
     }// End of lua_getDate
 
     int Parser::checkLog ( void )

@@ -2,7 +2,6 @@
 #define MAILBOT_PARSER
 #include "mail.hpp"
 #include "base.hpp"
-#include "plugin.hpp"
 #include <lua.hpp>
 
 namespace mailbot {
@@ -15,7 +14,7 @@ private:
     static Mail * mail ;
 
     void logMessage ( const char * msg ) ;
-
+    static int lua_pushEmptyString ( lua_State * L , std::string * str ) ;
     static int lua_pushBox ( lua_State * L , Box * box ) ;
     static int lua_pushStlString ( lua_State * L , std::string * str ) ;
     static int lua_pushListOfStrings ( lua_State * L , std::list<std::string *> * lst ) ;

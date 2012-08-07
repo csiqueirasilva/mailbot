@@ -4,8 +4,10 @@ local userToken = "1f3e317216dc798b80b2a4c43e79018d4581a1091a44bed07753da1c5fddb
 
 local boards = trello.getMember( "caiosilva", userToken ).idBoards
 
-if mailbot.getSubject() == "" then
-	print("There is no subject text! I will not be able to create a card.")
+print( mailbot.getSubject() )
+
+if mailbot.getSubject() == nil then
+	print( "There is no subject text! I will not be able to create a card." )
 end
 
 for i=1,#boards do
