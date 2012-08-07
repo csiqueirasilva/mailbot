@@ -33,6 +33,7 @@ private:
     Box * sender ;
     std::string * organization ;
     boost::posix_time::ptime * date ;
+    vmime::charset * chset ;
     void parseFromFile ( const char * fname ) ;
     void parseHeader ( vmime::ref<vmime::message> msg ) ;
     void parseBody ( vmime::ref<vmime::message> msg ) ;

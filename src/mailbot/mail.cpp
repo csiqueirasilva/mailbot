@@ -21,6 +21,8 @@ namespace mailbot {
 
     Mail::~Mail ( void )
     {
+        delete this->chset ;
+
         delete this->log ;
 
         delete this->body ;
@@ -197,7 +199,7 @@ namespace mailbot {
             this->cc = new std::list<Box *>() ;
             for ( int i = 0 ; i < e->getMailboxCount() ; i++ )
             {
-                this->cc->push_back(new Box(e->getMailboxAt(i)->getName().getWholeBuffer().c_str(), e->getMailboxAt(i)->getEmail().c_str()));
+                this->cc->push_back(new Box(e->getMailboxAt(i)->getName().getConvertedText(*this->chset).c_str(), e->getMailboxAt(i)->getEmail().c_str()));
             }// for
 
         }// catch
@@ -216,7 +218,7 @@ namespace mailbot {
             this->to = new std::list<Box *>() ;
             for ( int i = 0 ; i < e->getMailboxCount() ; i++ )
             {
-                this->to->push_back(new Box(e->getMailboxAt(i)->getName().getWholeBuffer().c_str(), e->getMailboxAt(i)->getEmail().c_str()));
+                this->to->push_back(new Box(e->getMailboxAt(i)->getName().getConvertedText(*this->chset).c_str(), e->getMailboxAt(i)->getEmail().c_str()));
             }// for
 
         }// catch
@@ -273,7 +275,7 @@ namespace mailbot {
             this->bcc = new std::list<Box *>() ;
             for ( int i = 0 ; i < e->getMailboxCount() ; i++ )
             {
-                this->bcc->push_back(new Box(e->getMailboxAt(i)->getName().getWholeBuffer().c_str(), e->getMailboxAt(i)->getEmail().c_str()));
+                this->bcc->push_back(new Box(e->getMailboxAt(i)->getName().getConvertedText(*this->chset).c_str(), e->getMailboxAt(i)->getEmail().c_str()));
             }// for
 
         }// catch
@@ -289,7 +291,7 @@ namespace mailbot {
         }// catch
         catch ( vmime::ref<const vmime::mailbox> e )
         {
-            this->sender = new Box(e->getName().getWholeBuffer().c_str(), e->getEmail().c_str());
+            this->sender = new Box(e->getName().getConvertedText(*this->chset).c_str(), e->getEmail().c_str());
         }// catch
 
        // get from
@@ -303,7 +305,7 @@ namespace mailbot {
         }// catch
         catch ( vmime::ref<const vmime::mailbox> e )
         {
-            this->from = new Box(e->getName().getWholeBuffer().c_str(), e->getEmail().c_str());
+            this->from = new Box(e->getName().getConvertedText(*this->chset).c_str(), e->getEmail().c_str());
         }// catch
 
         // get organization
@@ -318,20 +320,6 @@ namespace mailbot {
         catch ( std::string e )
         {
             this->organization = new std::string(e);
-        }// catch
-
-        // get subject
-        try
-        {
-            throw hdr->Subject()->getValue()->generate() ;
-        }// try
-        catch ( vmime::exception e )
-        {
-            this->subject = NULL ;
-        }// catch
-        catch ( std::string e )
-        {
-            this->subject = new std::string(e);
         }// catch
 
         // get messageId
@@ -396,36 +384,36 @@ namespace mailbot {
     {
         //Set the body output into the body variable
 
-        vmime::utility::outputStreamStringAdapter out(*(this->body));
-
         vmime::messageParser mp(msg);
 
         vmime::ref<const vmime::contentHandler> cts;
 
         //Get the first available body part
-        for( int i = 0 ; i < mp.getTextPartCount() ; i++ )
+        if ( mp.getTextPartCount() > 0 )
         {
-            vmime::ref<const vmime::textPart> tp = mp.getTextPartAt(i) ;
+            vmime::ref<const vmime::textPart> tp = mp.getTextPartAt(0) ;
+
+            vmime ::utility::outputStreamStringAdapter out( *this->body ) ;
+            vmime::utility::charsetFilteredOutputStream fout( tp->getCharset(), *this->chset, out );
 
             //If it is HTML, get the plain text
             if(tp->getType().getSubType() == vmime::mediaTypes::TEXT_HTML)
             {
-                vmime::ref <const vmime::htmlTextPart> htp =
-                tp.dynamicCast <const vmime::htmlTextPart>() ;
-
-                cts = htp->getPlainText();
-                break ;
+                vmime::ref <const vmime::htmlTextPart> htp = tp.dynamicCast<const vmime::htmlTextPart>();
+                cts = htp->getPlainText() ;
             }// IF
             else if ( tp->getType().getSubType() == vmime::mediaTypes::TEXT_PLAIN ) // Or get just get what it is there
             {
-                cts = tp->getText();
-                break ;
+                cts = tp->getText() ;
             }// ELSE
-        }// FOR
 
-        //Finish the output into the body variable
-        cts->extract(out) ;
-        out.flush();
+            //Finish the output into the body variable
+            cts->extract(fout) ;
+            fout.flush();
+
+        }//IF
+
+        this->subject = new std::string( mp.getSubject().getConvertedText(*this->chset) );
 
         if ( mp.getAttachmentCount() > 0 )
         {
@@ -489,7 +477,7 @@ namespace mailbot {
 
         vmime::platform::setHandler<vmime::platforms::posix::posixHandler>();
 
-        vmime::charset ch(vmime::charsets::UTF_8);
+        this->chset = new vmime::charset(vmime::charsets::UTF_8) ;
 
         vmime::ref<vmime::message> msg = vmime::create <vmime::message>();
 

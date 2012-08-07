@@ -47,7 +47,7 @@ namespace mailbot {
 
         if ( ! ( dir = opendir ( "/var/dev/mail-bot/plugins" ) ) )
         {
-           logMessage("Could not open the plugins directory: ") ;
+           this->logMessage("Could not open the plugins directory: ") ;
            return ;
         }// IF
 
@@ -55,19 +55,30 @@ namespace mailbot {
         {
             drnt = readdir ( dir ) ;
             if ( !drnt ) break ;
-            if ( strcmp( "." , drnt->d_name ) == 0 || strcmp( ".." , drnt->d_name ) == 0 || drnt->d_type != DT_DIR ) continue ;
+            if ( strcmp( "." , drnt->d_name ) == 0 || strcmp( ".." , drnt->d_name ) == 0 ) continue ;
+
+            struct stat buf ;
+
+            std::string pluginFilePath = "/var/dev/mail-bot/plugins/" + std::string(drnt->d_name) + "/plugin.lua" ;
+
+            if ( stat( pluginFilePath.c_str(),&buf ) != 0 ) // This was added since my work server couldn't return the type of the file properly. drnt->d_type was always a DT_UNKNOWN.
+                                                            // I believe this happened due to the version of the file system.
+                                                            // Reference: http://www.kernel.org/doc/man-pages/online/pages/man3/readdir.3.html
+            {
+                this->logMessage( std::string( "Plugin " + std::string(drnt->d_name) + " does not contain a plugin.lua file on the root or is not a directory." ).c_str() ) ;
+            }//IF
+
+            //If everything went OK, start running the lua plugin.
 
             lua_State *L = lua_open() ;
 
             luaL_openlibs( L ) ;
 
-            std::string pluginFilePath = "/var/dev/mail-bot/plugins/" + std::string(drnt->d_name) + "/plugin.lua" ;
-
             this->setLuaFunctions( L ) ;
 
             if ( luaL_dofile( L, pluginFilePath.c_str() ) != 0 )
             {
-                logMessage( std::string(std::string("Plugin ") + std::string(drnt->d_name) + " returned: " + std::string(lua_tostring( L, -1 ))).c_str() ) ;
+                this->logMessage( std::string(std::string("Plugin ") + std::string(drnt->d_name) + " returned: " + std::string(lua_tostring( L, -1 ))).c_str() ) ;
             }// IF
 
             lua_close( L ) ;
