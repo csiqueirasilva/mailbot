@@ -61,7 +61,7 @@ namespace mailbot {
 
             std::string pluginFilePath = "/var/dev/mail-bot/plugins/" + std::string(drnt->d_name) + "/plugin.lua" ;
 
-            if ( stat( pluginFilePath.c_str(),&buf ) != 0 ) // This was added since my work server couldn't return the type of the file properly. drnt->d_type was always a DT_UNKNOWN.
+            if ( stat( pluginFilePath.c_str(),&buf ) ) // This was added since my office server couldn't return the type of the file properly. drnt->d_type was always a DT_UNKNOWN.
                                                             // I believe this happened due to the version of the file system.
                                                             // Reference: http://www.kernel.org/doc/man-pages/online/pages/man3/readdir.3.html
             {
@@ -76,7 +76,7 @@ namespace mailbot {
 
             this->setLuaFunctions( L ) ;
 
-            if ( luaL_dofile( L, pluginFilePath.c_str() ) != 0 )
+            if ( luaL_dofile( L, pluginFilePath.c_str() ) )
             {
                 this->logMessage( std::string(std::string("Plugin ") + std::string(drnt->d_name) + " returned: " + std::string(lua_tostring( L, -1 ))).c_str() ) ;
             }// IF
