@@ -4,7 +4,8 @@ local ltn12 = require "ltn12"
 local json = require "json"
 local https = require "ssl.https"
 local table = table
-
+local cURL = require "cURL"
+local print = print
 module "trello"
 
 local appKey = "366aaf80a65cc6cce3b8576b85ae0303"
@@ -42,7 +43,26 @@ function putCard ( id , name , desc , token )
 	return json.arrayToTable ( body ) or status
 end
 
-function putAttachmentCard ( id , url , name , token )
-	local body, code, headers, status = postHttp ("https://api.trello.com/1/cards/" .. id .. "/attachments" , "key=" .. appKey .. "&token=" .. token .. "&name=" .. name .. "&url=" .. url )
-	return json.arrayToTable ( body ) or status
+function putAttachmentCard ( id , file , filetype, filename , token )
+	local c = cURL.easy_init()
+
+	c:setopt_url("https://api.trello.com/1/cards/" .. id .. "/attachments")
+	local postdata =  {
+		file = {
+			file = file,
+			type = filetype
+		},
+		name = filename,
+		token = token,
+		key = appKey
+	}
+	c:post(postdata)
+
+	local ret
+
+	c:perform({ writefunction = function (str)
+		ret = str
+	end})
+
+	return json.arrayToTable( ret )
 end
