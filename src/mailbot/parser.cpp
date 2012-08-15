@@ -60,8 +60,9 @@ namespace mailbot {
             struct stat buf ;
 
             std::string pluginFilePath = "/var/dev/mail-bot/plugins/" + std::string(drnt->d_name) + "/plugin.lua" ;
+            std::string configFilePath = "/var/dev/mail-bot/plugins/" + std::string(drnt->d_name) + "/config.lua" ;
 
-            if ( stat( pluginFilePath.c_str(),&buf ) ) // This was added since my office server couldn't return the type of the file properly. drnt->d_type was always a DT_UNKNOWN.
+            if ( stat( pluginFilePath.c_str(), &buf ) ) // This was added since my office server couldn't return the type of the file properly. drnt->d_type was always a DT_UNKNOWN.
                                                             // I believe this happened due to the version of the file system.
                                                             // Reference: http://www.kernel.org/doc/man-pages/online/pages/man3/readdir.3.html
             {
@@ -73,6 +74,19 @@ namespace mailbot {
             lua_State *L = lua_open() ;
 
             luaL_openlibs( L ) ;
+
+            lua_pushstring( L , std::string("/var/dev/mail-bot/plugins/" + std::string(drnt->d_name)).c_str() ) ;
+            lua_setglobal( L , "PLUGIN_PATH" ) ;
+
+            if ( !stat( configFilePath.c_str(), &buf ) )
+            {
+
+                if ( luaL_dofile( L, configFilePath.c_str() ) )
+                {
+                    this->logMessage( std::string(std::string("Plugin ") + std::string(drnt->d_name) + " configuration file returned: " + std::string(lua_tostring( L, -1 ))).c_str() ) ;
+                }// IF
+
+            }// IF
 
             this->setLuaFunctions( L ) ;
 
@@ -89,21 +103,12 @@ namespace mailbot {
 
     }// End of function runPlugins
 
-extern "C" {
-
-    static int C_getBody ( lua_State * L )
-    {
-        return Parser::lua_getBody( L ) ;
-    }// End of C_getBody
-
-}
-
     void Parser::setLuaFunctions ( lua_State * L )
     {
         lua_newtable( L ) ;
 
         lua_pushstring ( L , "getBody" ) ;
-        lua_pushcfunction ( L , C_getBody ) ;
+        lua_pushcfunction ( L , lua_getBody ) ;
         lua_rawset ( L , -3 ) ;
 
         lua_pushstring ( L , "getCc" ) ;

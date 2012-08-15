@@ -4,11 +4,21 @@ local ltn12 = require "ltn12"
 local json = require "json"
 local https = require "ssl.https"
 local table = table
-local cURL = require "cURL"
-local print = print
-module "trello"
 
-local appKey = "366aaf80a65cc6cce3b8576b85ae0303"
+--[[	
+	The following cURL lib can be found here:
+
+	http://msva.github.com/lua-curl/
+	
+	Make sure you have autoconf installed and lua package set. 
+	I had trouble with my lua package, so I created a reference
+	for lua5.1 package. The command is "ln -s lua5.1.pc lua.pc".
+	Just run this inside /usr/lib/pkgconfig.
+]]--
+	
+local cURL = require "cURL"
+
+module "trello"
 
 local function postHttp ( i_url, i_data )
 	local body = {}
@@ -28,22 +38,22 @@ local function postHttp ( i_url, i_data )
 	
 end
 
-function getMember ( member , token )
-	local body, code, headers, status = https.request("https://api.trello.com/1/members/" .. member .. "?key=" .. appKey .. "&token=" .. token )
+function getMember ( member , token , key )
+	local body, code, headers, status = https.request("https://api.trello.com/1/members/" .. member .. "?key=" .. key .. "&token=" .. token )
 	return json.arrayToTable ( body ) or status
 end
 
-function getBoard ( id , token )
-	local body, code, headers, status = https.request("https://api.trello.com/1/boards/" .. id .. "?key=" .. appKey .. "&token=" .. token .. "&lists=all" )
+function getBoard ( id , token, key )
+	local body, code, headers, status = https.request("https://api.trello.com/1/boards/" .. id .. "?key=" .. key .. "&token=" .. token .. "&lists=all" )
 	return json.arrayToTable ( body ) or status
 end
 
-function putCard ( id , name , desc , token )
-	local body, code, headers, status = postHttp ("https://api.trello.com/1/cards" , "key=" .. appKey .. "&token=" .. token .. "&idList=" .. id .. "&name=" .. name .. "&desc=" .. desc )
+function putCard ( id , name , desc , token, key )
+	local body, code, headers, status = postHttp ("https://api.trello.com/1/cards" , "key=" .. key .. "&token=" .. token .. "&idList=" .. id .. "&name=" .. name .. "&desc=" .. desc )
 	return json.arrayToTable ( body ) or status
 end
 
-function putAttachmentCard ( id , file , filetype, filename , token )
+function putAttachmentCard ( id , file , filetype, filename , token, key )
 	local c = cURL.easy_init()
 
 	c:setopt_url("https://api.trello.com/1/cards/" .. id .. "/attachments")
@@ -54,7 +64,7 @@ function putAttachmentCard ( id , file , filetype, filename , token )
 		},
 		name = filename,
 		token = token,
-		key = appKey
+		key = key
 	}
 	c:post(postdata)
 
