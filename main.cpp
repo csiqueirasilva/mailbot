@@ -9,5 +9,5 @@ int main (int argc, char ** argv)
 
     parser->Delete() ;
 
-    return 1 ;
+    return 0;
 }
